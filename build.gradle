@@ -1,0 +1,42 @@
+plugins {
+	id 'java'
+}
+
+group = 'com.udemy'
+version = '1.0.0'
+description = 'Udemy - Design Patterns on Java'
+
+java {
+	sourceCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	jupiterVersion = '5.9.3'
+	mockitoVersion = '5.2.0'
+}
+
+dependencies {
+	testImplementation "org.junit.jupiter:junit-jupiter:$jupiterVersion"
+	testImplementation "org.junit.jupiter:junit-jupiter-api:$jupiterVersion"
+	testImplementation "org.junit.jupiter:junit-jupiter-params:$jupiterVersion"
+	testImplementation "org.mockito:mockito-core:$mockitoVersion"
+	testImplementation "org.mockito:mockito-junit-jupiter:$mockitoVersion"
+
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$jupiterVersion"
+}
+
+test {
+	useJUnitPlatform()
+
+	// Always run tests, even when nothing changed.
+	dependsOn 'cleanTest'
+
+	// Show test results.
+	testLogging {
+		events "passed", "skipped", "failed"
+	}
+}
