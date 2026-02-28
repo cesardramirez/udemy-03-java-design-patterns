@@ -10,4 +10,4 @@ Udemy - Patrones de Diseño en Java
 # Design Patterns
 1. Factory Method
 <br>
-![factory-method](docs/img/01_UML_FactoryMethod.png)
+![factory-method](docs/img/01_UML_FactoryMethod.png?raw=true)
