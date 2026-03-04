@@ -11,7 +11,7 @@ Udemy - Patrones de Diseño en Java
 
 ## 🏭 Factory Method
 
-![Factory Method UML](docs/img/01_UML_FactoryMethod.png)
+![Factory Method UML](docs/img/01_UML_Factory_Method.png)
 
 ### 📖 Descripción
 El patrón **Factory Method** define una interfaz para crear objetos, pero permite que las subclases decidan qué clase instanciar.
