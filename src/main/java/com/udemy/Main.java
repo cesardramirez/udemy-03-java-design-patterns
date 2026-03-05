@@ -19,7 +19,10 @@ public class Main {
     //testFactoryMethod();
 
     //2. Factory Method.
-    testAbstractFactory();
+    //testAbstractFactory();
+
+    //3. Builder.
+    testBuilder();
   }
 
   private static void testFactoryMethod() {
@@ -35,5 +38,24 @@ public class Main {
     PaymentMethod productB2 = concreteFactory2.create(TypePaymentMethod.CREDIT.toString());
 
     System.out.println("Tarjeta de crédito " + productA1.getCardType() + " con número " + productA1.getNumber() + " de tipo " + productB2.doPayment());
+  }
+
+  private static void testBuilder() {
+    com.udemy.patterns.creational.builder.Card card1 =
+            new com.udemy.patterns.creational.builder.Card
+                    .CardBuilder("VISA", "4242 4242 4242 4242")
+                    .name("César")
+                    .expiration(2030)
+                    .credit(true)
+                    .build();
+
+    System.out.println(card1);
+
+    com.udemy.patterns.creational.builder.Card card2 =
+            new com.udemy.patterns.creational.builder.Card
+                    .CardBuilder("AMEX", "3400 0000 0000 0000")
+                    .build();
+
+    System.out.println(card2);
   }
 }
