@@ -28,12 +28,12 @@ public class Main {
   }
 
   private static void testAbstractFactory() {
-    AbstractFactory<Card> concreteFactory1 = FactoryProvider.getFactory(CardFactory.class);
+    AbstractFactory<Card> concreteFactory1 = FactoryProvider.getFactory(CardFactory::new);
     Card productA1 = concreteFactory1.create(TypeCard.VISA.toString());
 
-    AbstractFactory<PaymentMethod> concreteFactory2 = FactoryProvider.getFactory(PaymentMethodFactory.class);
+    AbstractFactory<PaymentMethod> concreteFactory2 = FactoryProvider.getFactory(PaymentMethodFactory::new);
     PaymentMethod productB2 = concreteFactory2.create(TypePaymentMethod.CREDIT.toString());
 
-    System.out.println("Tarjeta de crédito " + productA1.getCardType() + productB2.doPayment() + " con número " + productA1.getNumber() + " de tipo " + productB2.doPayment());
+    System.out.println("Tarjeta de crédito " + productA1.getCardType() + " con número " + productA1.getNumber() + " de tipo " + productB2.doPayment());
   }
 }

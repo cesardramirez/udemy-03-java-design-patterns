@@ -2,12 +2,15 @@ package com.udemy.patterns.creational.abstractfactory;
 
 import com.udemy.patterns.creational.abstractfactory.factory.AbstractFactory;
 
+import java.util.function.Supplier;
+
+/**
+ * FactoryProvider.
+ * Define cuál será la factoría a crear según el tipo de clase reciba (CardFactory o PaymentMethodFactory).
+ * Devuelve un ConcreteFactory, una nueva instancia (objeto).
+ */
 public class FactoryProvider {
-  public static <T> AbstractFactory<T> getFactory(Class<? extends AbstractFactory<T>> factoryClass) {
-    try {
-      return factoryClass.getDeclaredConstructor().newInstance();
-    } catch (Exception e) {
-      throw new RuntimeException("Could not create factory", e);
-    }
+  public static <T> AbstractFactory<T> getFactory(Supplier<AbstractFactory<T>> supplier) {
+    return supplier.get();
   }
 }
