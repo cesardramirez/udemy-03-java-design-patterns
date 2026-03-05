@@ -12,6 +12,8 @@ import com.udemy.patterns.creational.factorymethod.Payment;
 import com.udemy.patterns.creational.factorymethod.PaymentFactory;
 import com.udemy.patterns.creational.factorymethod.TypePayment;
 
+import java.time.YearMonth;
+
 
 public class Main {
   public static void main(String[] args) {
@@ -43,9 +45,9 @@ public class Main {
   private static void testBuilder() {
     com.udemy.patterns.creational.builder.Card card1 =
             new com.udemy.patterns.creational.builder.Card
-                    .CardBuilder("VISA", "4242 4242 4242 4242")
-                    .name("César")
-                    .expiration(2030)
+                    .Builder("VISA", "4242 4242 4242 4242")
+                    .holderName("César")
+                    .expiration(YearMonth.of(2030, 12))
                     .credit(true)
                     .build();
 
@@ -53,7 +55,7 @@ public class Main {
 
     com.udemy.patterns.creational.builder.Card card2 =
             new com.udemy.patterns.creational.builder.Card
-                    .CardBuilder("AMEX", "3400 0000 0000 0000")
+                    .Builder("AMEX", "3400 0000 0000 0000")
                     .build();
 
     System.out.println(card2);

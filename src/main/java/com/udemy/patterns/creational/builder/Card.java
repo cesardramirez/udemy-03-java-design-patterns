@@ -1,16 +1,19 @@
 package com.udemy.patterns.creational.builder;
 
+import java.time.YearMonth;
+import java.util.Objects;
+
 public class Card {
   private final String cardType;
   private final String number;
-  private final String name;
-  private final int expiration;
+  private final String holderName;
+  private final YearMonth expiration;
   private final boolean credit;
 
-  private Card(CardBuilder builder) {
+  private Card(Builder builder) {
     this.cardType = builder.cardType;
     this.number = builder.number;
-    this.name = builder.name;
+    this.holderName = builder.holderName;
     this.expiration = builder.expiration;
     this.credit = builder.credit;
   }
@@ -23,11 +26,11 @@ public class Card {
     return number;
   }
 
-  public String getName() {
-    return name;
+  public String getHolderName() {
+    return holderName;
   }
 
-  public int getExpiration() {
+  public YearMonth getExpiration() {
     return expiration;
   }
 
@@ -37,44 +40,55 @@ public class Card {
 
   @Override
   public String toString() {
-    return "Card{" +
-            "cardType='" + cardType + '\'' +
-            ", number='" + number + '\'' +
-            ", name='" + name + '\'' +
-            ", expiration=" + expiration +
-            ", credit=" + credit +
-            '}';
+    return String.format(
+            "Card[type=%s, number=%s, holder=%s, expiration=%s, credit=%s]",
+            cardType, number, holderName, expiration, credit
+    );
   }
 
-  public static class CardBuilder {
+  // ======= BUILDER =========
+  public static class Builder {
     private final String cardType;
     private final String number;
-    private String name;
-    private int expiration;
+
+    private String holderName;
+    private YearMonth expiration;
     private boolean credit;
 
-    public CardBuilder(String cardType, String number) {
-      this.cardType = cardType;
-      this.number = number;
+    public Builder(String cardType, String number) {
+      this.cardType = Objects.requireNonNull(cardType, "cardType is required");
+      this.number = Objects.requireNonNull(number, "number is required");
     }
 
-    public CardBuilder name(String name) {
-      this.name = name;
+    public Builder holderName(String holderName) {
+      this.holderName = holderName;
       return this;
     }
 
-    public CardBuilder expiration(int expiration) {
+    public Builder expiration(YearMonth expiration) {
       this.expiration = expiration;
       return this;
     }
 
-    public CardBuilder credit(boolean credit) {
+    public Builder credit(boolean credit) {
       this.credit = credit;
       return this;
     }
 
     public Card build() {
+      validate();
       return new Card(this);
+    }
+
+    // Additional method
+    private void validate() {
+      if (number.length() < 12 || number.length() > 19) {
+        throw new IllegalArgumentException("Card number length is invalid");
+      }
+
+      if (expiration != null && expiration.isBefore(YearMonth.now())) {
+        throw new IllegalStateException("Card is expired");
+      }
     }
   }
 }

@@ -53,3 +53,28 @@ Permite que el cliente trabaje únicamente con interfaces, desacoplando completa
 | AbstractProduct | Interfaz común de los productos |
 | ConcreteProduct | Implementaciones específicas |
 | Client | Usa solo interfaces |
+
+## 🏗️ Builder
+
+![Factory Method UML](docs/img/03_UML_Builder.png)
+
+### 📖 Descripción
+El patrón **Builder** separa la construcción de un objeto complejo de su representación, permitiendo crear diferentes representaciones usando el mismo proceso de construcción.
+
+Es ideal cuando:
+- El objeto tiene muchos atributos opcionales.
+- Se quiere evitar constructores con demasiados parámetros.
+- Se necesita controlar el proceso de creación paso a paso.
+
+### 🎯 Problema que resuelve
+- Evita constructores telescópicos (constructores sobrecargados que se van extendiendo).
+- Mejora la legibilidad del código.
+- Permite crear distintas configuraciones del mismo objeto.
+
+### 🧱 Estructura
+| Rol | Responsabilidad |
+|------|----------------|
+| Builder | Define los pasos de construcción |
+| ConcreteBuilder | Implementa los pasos |
+| Director (opcional) | Orquesta el proceso de construcción |
+| Product | Objeto final complejo |
