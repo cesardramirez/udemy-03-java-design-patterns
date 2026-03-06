@@ -5,7 +5,8 @@ Udemy - Patrones de Diseño en Java
 - Creational
   - [Factory Method](#-factory-method).
   - [Abstract Factory](#-abstract-factory).
-  - Builder.
+  - [Builder](#-builder).
+  - [Prototype](#-prototype).
 - Structural
 - Behavior
 
@@ -78,3 +79,24 @@ Es ideal cuando:
 | ConcreteBuilder | Implementa los pasos |
 | Director (opcional) | Orquesta el proceso de construcción |
 | Product | Objeto final complejo |
+
+## 🧬 Prototype
+
+![Factory Method UML](docs/img/04_UML_Prototype.png)
+
+### 📖 Descripción
+El patrón **Prototype** permite crear nuevos objetos **clonando una instancia existente**, en lugar de crear un objeto desde cero.
+
+Esto es útil cuando la creación de objetos es **costosa o compleja**, y es más eficiente copiar una instancia ya configurada.
+
+### 🎯 Problema que resuelve
+- Evita la creación repetitiva de objetos complejos.
+- Reduce el costo de inicialización.
+- Permite crear copias de objetos en tiempo de ejecución.
+
+### 🧱 Estructura
+| Rol | Responsabilidad                                    |
+|------|----------------------------------------------------|
+| Prototype | Interfaz que define el método `clone()` o `copy()` |
+| ConcretePrototype | Implementa la clonación                            |
+| Client | Clona el objeto existente                          |
