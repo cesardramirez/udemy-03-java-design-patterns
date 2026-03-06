@@ -68,15 +68,11 @@ public class Main {
   }
 
   private static void testPrototype() {
-    try {
-      Visa visaClone = (Visa) PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.VISA);
-      visaClone.setName("Visa clonada 9999");
-      visaClone.showCard();
+    Visa visaClone = (Visa) PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.VISA);
+    visaClone.setName("Visa clonada 9999");
+    visaClone.showCard();
 
-      PrototypeCard amexClone = PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.AMEX);
-      amexClone.showCard();
-    } catch (CloneNotSupportedException e) {
-      throw new RuntimeException("Error clonando las tarjetas", e);
-    }
+    PrototypeCard amexClone = PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.AMEX);
+    amexClone.showCard();
   }
 }
