@@ -11,6 +11,9 @@ import com.udemy.patterns.creational.abstractfactory.product.PaymentMethod;
 import com.udemy.patterns.creational.factorymethod.Payment;
 import com.udemy.patterns.creational.factorymethod.PaymentFactory;
 import com.udemy.patterns.creational.factorymethod.TypePayment;
+import com.udemy.patterns.creational.prototype.PrototypeCard;
+import com.udemy.patterns.creational.prototype.PrototypeFactory;
+import com.udemy.patterns.creational.prototype.Visa;
 
 import java.time.YearMonth;
 
@@ -24,7 +27,10 @@ public class Main {
     //testAbstractFactory();
 
     //3. Builder.
-    testBuilder();
+    //testBuilder();
+
+    //4. Prototype.
+    testPrototype();
   }
 
   private static void testFactoryMethod() {
@@ -59,5 +65,18 @@ public class Main {
                     .build();
 
     System.out.println(card2);
+  }
+
+  private static void testPrototype() {
+    try {
+      Visa visaClone = (Visa) PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.VISA);
+      visaClone.setName("Visa clonada 9999");
+      visaClone.showCard();
+
+      PrototypeCard amexClone = PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.AMEX);
+      amexClone.showCard();
+    } catch (CloneNotSupportedException e) {
+      throw new RuntimeException("Error clonando las tarjetas", e);
+    }
   }
 }
