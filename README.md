@@ -7,6 +7,7 @@ Udemy - Patrones de Diseño en Java
   - [Abstract Factory](#-abstract-factory).
   - [Builder](#-builder).
   - [Prototype](#-prototype).
+  - Singleton.
 - Structural
 - Behavior
 

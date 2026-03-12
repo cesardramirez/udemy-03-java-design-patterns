@@ -30,7 +30,10 @@ public class Main {
     //testBuilder();
 
     //4. Prototype.
-    testPrototype();
+    //testPrototype();
+
+    //5. Prototype.
+    testSingleton();
   }
 
   private static void testFactoryMethod() {
@@ -74,5 +77,10 @@ public class Main {
 
     PrototypeCard amexClone = PrototypeFactory.getInstance(com.udemy.patterns.creational.prototype.TypeCard.AMEX);
     amexClone.showCard();
+  }
+
+  private static void testSingleton() {
+    com.udemy.patterns.creational.singleton.Card.getInstance().setCardNumber("1234 1234 1234 1234");
+    System.out.println(com.udemy.patterns.creational.singleton.Card.getInstance().getCardNumber());
   }
 }
