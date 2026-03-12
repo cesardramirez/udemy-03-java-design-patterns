@@ -80,7 +80,11 @@ public class Main {
   }
 
   private static void testSingleton() {
-    com.udemy.patterns.creational.singleton.Card.getInstance().setCardNumber("1234 1234 1234 1234");
-    System.out.println(com.udemy.patterns.creational.singleton.Card.getInstance().getCardNumber());
+    com.udemy.patterns.creational.singleton.Card card1 = com.udemy.patterns.creational.singleton.Card.INSTANCE;
+    card1.setCardNumber("1234 1234 1234 1234");
+
+    com.udemy.patterns.creational.singleton.Card card2 = com.udemy.patterns.creational.singleton.Card.INSTANCE;
+
+    System.out.println(card2.getCardNumber()); // card1 y card2 son el mismo objeto.
   }
 }
