@@ -13,6 +13,7 @@ Udemy - Patrones de Diseño en Java
 
 # Design Patterns
 
+---
 ## 🏭 Factory Method
 
 ![Factory Method UML](docs/img/01_UML_Factory_Method.png)
@@ -33,6 +34,7 @@ El patrón **Factory Method** define una interfaz para crear objetos, pero permi
 | Creator | Clase base con factory method |
 | ConcreteCreator | Implementación concreta |
 
+---
 ## 🏭 Abstract Factory
 
 ![Factory Method UML](docs/img/02_UML_Abstract_Factory.png)
@@ -56,6 +58,7 @@ Permite que el cliente trabaje únicamente con interfaces, desacoplando completa
 | ConcreteProduct | Implementaciones específicas |
 | Client | Usa solo interfaces |
 
+---
 ## 🏗️ Builder
 
 ![Factory Method UML](docs/img/03_UML_Builder.png)
@@ -81,6 +84,7 @@ Es ideal cuando:
 | Director (opcional) | Orquesta el proceso de construcción |
 | Product | Objeto final complejo |
 
+---
 ## 🧬 Prototype
 
 ![Factory Method UML](docs/img/04_UML_Prototype.png)
@@ -101,3 +105,27 @@ Esto es útil cuando la creación de objetos es **costosa o compleja**, y es má
 | Prototype | Interfaz que define el método `clone()` o `copy()` |
 | ConcretePrototype | Implementa la clonación                            |
 | Client | Clona el objeto existente                          |
+
+---
+## 🔒 Singleton
+
+![Factory Method UML](docs/img/05_UML_Singleton.png)
+
+### 📖 Descripción
+
+El patrón **Singleton** asegura que una clase tenga **solo una instancia** durante toda la ejecución de la aplicación y ofrece un punto global para acceder a ella.
+
+Se utiliza comúnmente para objetos que deben ser **compartidos en toda la aplicación**, como configuraciones, conexiones o administradores de recursos.
+
+### 🎯 Problema que resuelve
+
+- Evita crear múltiples instancias innecesarias.
+- Controla el acceso global a un objeto.
+- Centraliza la gestión de recursos compartidos.
+
+### 🧱 Estructura
+| Rol | Responsabilidad |
+|-----|----------------|
+| Singleton | Clase que controla la creación de su única instancia |
+| Instance | Instancia única accesible globalmente |
+| Client | Obtiene la instancia mediante un método estático |
