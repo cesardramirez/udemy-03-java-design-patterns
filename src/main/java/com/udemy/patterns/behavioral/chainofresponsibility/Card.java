@@ -1,30 +1,21 @@
 package com.udemy.patterns.behavioral.chainofresponsibility;
 
-public class Card implements ApproveLoanChain {
+public class Card {
 
-  private ApproveLoanChain next;
+  private final ApproveLoanHandler chain;
 
-  @Override
-  public void setNext(ApproveLoanChain loan) {
-    next = loan;
-  }
+  public Card() {
+    ApproveLoanHandler gold = new Gold();
+    ApproveLoanHandler platinum = new Platinum();
+    ApproveLoanHandler black = new Black();
 
-  @Override
-  public ApproveLoanChain getNext() {
-    return next;
-  }
-
-  @Override
-  public void creditCardRequest(int totalLoan) {
-    Gold gold = new Gold();
-    this.setNext(gold);
-
-    Platinum platinum = new Platinum();
     gold.setNext(platinum);
-
-    Black black = new Black();
     platinum.setNext(black);
 
-    next.creditCardRequest(totalLoan);
+    chain = gold;  // Punto de partida.
+  }
+
+  public void creditCardRequest(int totalLoan) {
+    chain.handleRequest(totalLoan);
   }
 }
