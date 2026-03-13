@@ -130,3 +130,28 @@ Se utiliza comúnmente para objetos que deben ser **compartidos en toda la aplic
 | Singleton | Clase que controla la creación de su única instancia |
 | Instance | Instancia única accesible globalmente |
 | Client | Obtiene la instancia mediante un método estático |
+
+---
+## ⛓️ Chain of Responsibility
+
+![Factory Method UML](docs/img/06_UML_Chain_of_Responsibility.png)
+
+### 📖 Descripción
+
+El patrón **Chain of Responsibility** evita acoplar el emisor de una solicitud con su receptor, dando a varios objetos la oportunidad de manejarla.
+
+Los objetos se organizan en una **cadena**, y cada uno decide si puede procesar la solicitud o pasarla al siguiente.
+
+### 🎯 Problema que resuelve
+
+- Elimina dependencias rígidas entre quien envía y quien procesa la solicitud.
+- Permite agregar o quitar manejadores fácilmente.
+- Facilita construir pipelines de procesamiento.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Handler | Define la interfaz para manejar solicitudes |
+| ConcreteHandler | Procesa la solicitud o la pasa al siguiente |
+| Client | Inicia la solicitud en la cadena |
