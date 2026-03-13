@@ -20,20 +20,15 @@ import java.time.YearMonth;
 
 public class Main {
   public static void main(String[] args) {
-    //1. Factory Method.
+    // ---- Creational Patterns ----
     //testFactoryMethod();
-
-    //2. Factory Method.
     //testAbstractFactory();
-
-    //3. Builder.
     //testBuilder();
-
-    //4. Prototype.
     //testPrototype();
+    //testSingleton();
 
-    //5. Prototype.
-    testSingleton();
+    // ---- Behavioral Patterns ----
+    testChainOfResponsibility();
   }
 
   private static void testFactoryMethod() {
@@ -86,5 +81,10 @@ public class Main {
     com.udemy.patterns.creational.singleton.Card card2 = com.udemy.patterns.creational.singleton.Card.INSTANCE;
 
     System.out.println(card2.getCardNumber()); // card1 y card2 son el mismo objeto.
+  }
+
+  private static void testChainOfResponsibility() {
+    com.udemy.patterns.behavioral.chainofresponsibility.Card card = new com.udemy.patterns.behavioral.chainofresponsibility.Card();
+    card.creditCardRequest(100000);
   }
 }
