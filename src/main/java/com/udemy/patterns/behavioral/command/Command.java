@@ -5,4 +5,8 @@ package com.udemy.patterns.behavioral.command;
  */
 public interface Command {
   void execute();
+
+  default void undo() {
+    throw new UnsupportedOperationException("Undo not supported");
+  }
 }

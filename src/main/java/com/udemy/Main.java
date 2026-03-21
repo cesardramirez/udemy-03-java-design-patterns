@@ -1,9 +1,6 @@
 package com.udemy;
 
-import com.udemy.patterns.behavioral.command.CreditCard;
-import com.udemy.patterns.behavioral.command.CreditCardActivateCommand;
-import com.udemy.patterns.behavioral.command.CreditCardDeactivateCommand;
-import com.udemy.patterns.behavioral.command.CreditCardInvoker;
+import com.udemy.patterns.behavioral.command.*;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -94,15 +91,22 @@ public class Main {
   }
 
   private static void testCommand() {
-    CreditCard creditCard = new CreditCard();
+    CreditCard card = new CreditCard();
     CreditCardInvoker invoker = new CreditCardInvoker();
 
-    invoker.setCommand(new CreditCardActivateCommand(creditCard));
-    invoker.run();
+    Command activate = new ActivateCommand(card);
+    Command deactivate = new DeactivateCommand(card);
 
-    System.out.println("----------------");
+    invoker.run(activate);
 
-    invoker.setCommand(new CreditCardDeactivateCommand(creditCard));
-    invoker.run();
+    System.out.println("---- UNDO ----");
+    invoker.undo();
+
+    System.out.println("\n--------------\n");
+
+    invoker.run(deactivate);
+
+    System.out.println("---- UNDO ----");
+    invoker.undo();
   }
 }

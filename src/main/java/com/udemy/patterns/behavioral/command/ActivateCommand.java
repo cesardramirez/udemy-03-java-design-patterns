@@ -4,18 +4,24 @@ package com.udemy.patterns.behavioral.command;
  * ConcreteCommand1: CreditCardDesactivateCommand
  * Un comando puede ejecutar varias operaciones.
  */
-public class CreditCardActivateCommand implements Command {
+public class ActivateCommand implements Command {
 
   private final CreditCard creditCard;
 
-  public CreditCardActivateCommand(CreditCard creditCard) {
+  public ActivateCommand(CreditCard creditCard) {
     this.creditCard = creditCard;
   }
 
   @Override
   public void execute() {
-    creditCard.sendPinNumberToCustomer();
+    creditCard.sendPin();
     creditCard.activate();
-    creditCard.sendSMSToCustomerActivate();
+    creditCard.notifyActivation();
+  }
+
+  @Override
+  public void undo() {
+    creditCard.deactivate();
+    creditCard.notifyDeactivation();
   }
 }
