@@ -11,7 +11,7 @@ Udemy - Patrones de Diseño en Java
 - Structural
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
-  - Command.
+  - [Command](#-commandvvvvvvvvvvvvvvv).
 
 # Design Patterns
 
@@ -39,7 +39,7 @@ El patrón **Factory Method** define una interfaz para crear objetos, pero permi
 ---
 ## 🏭 Abstract Factory
 
-![Factory Method UML](docs/img/02_UML_Abstract_Factory.png)
+![Abstract Factory UML](docs/img/02_UML_Abstract_Factory.png)
 
 ### 📖 Descripción
 El patrón **Abstract Factory** proporciona una interfaz para crear **familias de objetos relacionados o dependientes** sin especificar sus clases concretas.
@@ -63,7 +63,7 @@ Permite que el cliente trabaje únicamente con interfaces, desacoplando completa
 ---
 ## 🏗️ Builder
 
-![Factory Method UML](docs/img/03_UML_Builder.png)
+![Builder UML](docs/img/03_UML_Builder.png)
 
 ### 📖 Descripción
 El patrón **Builder** separa la construcción de un objeto complejo de su representación, permitiendo crear diferentes representaciones usando el mismo proceso de construcción.
@@ -89,7 +89,7 @@ Es ideal cuando:
 ---
 ## 🧬 Prototype
 
-![Factory Method UML](docs/img/04_UML_Prototype.png)
+![Prototype UML](docs/img/04_UML_Prototype.png)
 
 ### 📖 Descripción
 El patrón **Prototype** permite crear nuevos objetos **clonando una instancia existente**, en lugar de crear un objeto desde cero.
@@ -111,7 +111,7 @@ Esto es útil cuando la creación de objetos es **costosa o compleja**, y es má
 ---
 ## 🔒 Singleton
 
-![Factory Method UML](docs/img/05_UML_Singleton.png)
+![Singleton UML](docs/img/05_UML_Singleton.png)
 
 ### 📖 Descripción
 
@@ -135,7 +135,7 @@ Se utiliza comúnmente para objetos que deben ser **compartidos en toda la aplic
 ---
 ## ⛓️ Chain of Responsibility
 
-![Factory Method UML](docs/img/06_UML_Chain_of_Responsibility.png)
+![Chain of Responsibility UML](docs/img/06_UML_Chain_of_Responsibility.png)
 
 ### 📖 Descripción
 
@@ -156,3 +156,35 @@ Los objetos se organizan en una **cadena**, y cada uno decide si puede procesar 
 | Handler | Define la interfaz para manejar solicitudes |
 | ConcreteHandler | Procesa la solicitud o la pasa al siguiente |
 | Client | Inicia la solicitud en la cadena |
+
+---
+## 🎮 Command
+
+![Command UML](docs/img/07_UML_Command.png)
+
+### 📖 Descripción
+
+El patrón **Command** convierte una solicitud en un objeto independiente que contiene toda la información necesaria para ejecutarla.
+
+Esto permite:
+- Desacoplar quien envía la solicitud de quien la ejecuta.
+- Soportar operaciones como **undo/redo**.
+- Manejar colas de comandos.
+
+### 🎯 Problema que resuelve
+
+- Elimina el acoplamiento entre emisor y receptor.
+- Permite registrar y deshacer operaciones.
+- Facilita la implementación de macros o acciones compuestas.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Command | Declara la interfaz (`execute`) |
+| ConcreteCommand | Implementa la ejecución |
+| Receiver | Realiza la acción real |
+| Invoker | Llama al comando |
+| Client | Configura los comandos |
+
+---
