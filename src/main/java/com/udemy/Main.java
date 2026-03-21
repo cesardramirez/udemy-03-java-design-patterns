@@ -1,6 +1,9 @@
 package com.udemy;
 
 import com.udemy.patterns.behavioral.command.*;
+import com.udemy.patterns.behavioral.iterator.CardList;
+import com.udemy.patterns.behavioral.iterator.Iterator;
+import com.udemy.patterns.behavioral.iterator.List;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -30,7 +33,8 @@ public class Main {
 
     // ---- Behavioral Patterns ----
     //testChainOfResponsibility();
-    testCommand();
+    //testCommand();
+    testIterator();
   }
 
   private static void testFactoryMethod() {
@@ -108,5 +112,23 @@ public class Main {
 
     System.out.println("---- UNDO ----");
     invoker.undo();
+  }
+
+  private static void testIterator() {
+    com.udemy.patterns.behavioral.iterator.Card[] cards = {
+            new com.udemy.patterns.behavioral.iterator.Card("Visa"),
+            new com.udemy.patterns.behavioral.iterator.Card("MasterCard"),
+            new com.udemy.patterns.behavioral.iterator.Card("Amex"),
+            new com.udemy.patterns.behavioral.iterator.Card("Google Card"),
+            new com.udemy.patterns.behavioral.iterator.Card("Apple Card")
+    };
+
+    List lista = new CardList(cards);
+    Iterator iterator = lista.iterator();
+
+    while (iterator.hasNext()) {
+      com.udemy.patterns.behavioral.iterator.Card card = (com.udemy.patterns.behavioral.iterator.Card) iterator.next();
+      System.out.println(card.getType());
+    }
   }
 }

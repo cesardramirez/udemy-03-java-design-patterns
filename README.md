@@ -11,7 +11,8 @@ Udemy - Patrones de Diseño en Java
 - Structural
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
-  - [Command](#-commandvvvvvvvvvvvvvvv).
+  - [Command](#-command).
+  - Iterator.
 
 # Design Patterns
 
