@@ -1,5 +1,9 @@
 package com.udemy;
 
+import com.udemy.patterns.behavioral.command.CreditCard;
+import com.udemy.patterns.behavioral.command.CreditCardActivateCommand;
+import com.udemy.patterns.behavioral.command.CreditCardDeactivateCommand;
+import com.udemy.patterns.behavioral.command.CreditCardInvoker;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -28,7 +32,8 @@ public class Main {
     //testSingleton();
 
     // ---- Behavioral Patterns ----
-    testChainOfResponsibility();
+    //testChainOfResponsibility();
+    testCommand();
   }
 
   private static void testFactoryMethod() {
@@ -86,5 +91,18 @@ public class Main {
   private static void testChainOfResponsibility() {
     com.udemy.patterns.behavioral.chainofresponsibility.Card card = new com.udemy.patterns.behavioral.chainofresponsibility.Card();
     card.creditCardRequest(100000);
+  }
+
+  private static void testCommand() {
+    CreditCard creditCard = new CreditCard();
+    CreditCardInvoker invoker = new CreditCardInvoker();
+
+    invoker.setCommand(new CreditCardActivateCommand(creditCard));
+    invoker.run();
+
+    System.out.println("----------------");
+
+    invoker.setCommand(new CreditCardDeactivateCommand(creditCard));
+    invoker.run();
   }
 }

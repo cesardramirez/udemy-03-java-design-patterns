@@ -10,7 +10,8 @@ Udemy - Patrones de Diseño en Java
   - [Singleton](#-singleton).
 - Structural
 - Behavioral
-  - Chain of Responsibility. 
+  - [Chain of Responsibility](#-chain-of-responsibility).
+  - Command.
 
 # Design Patterns
 
