@@ -12,7 +12,7 @@ Udemy - Patrones de Diseño en Java
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
-  - Iterator.
+  - [Iterator](#-iterator).
 
 # Design Patterns
 
@@ -187,5 +187,32 @@ Esto permite:
 | Receiver | Realiza la acción real |
 | Invoker | Llama al comando |
 | Client | Configura los comandos |
+
+---
+## 🔁 Iterator
+
+![Iterator UML](docs/img/08_UML_Iterator.png)
+
+### 📖 Descripción
+
+El patrón **Iterator** permite acceder secuencialmente a los elementos de una colección sin revelar cómo están almacenados internamente.
+
+Separa la lógica de recorrido de la estructura de datos, facilitando cambios en la colección sin afectar al cliente.
+
+### 🎯 Problema que resuelve
+
+- Evita exponer la estructura interna de una colección.
+- Permite múltiples formas de recorrido.
+- Desacopla la iteración de la colección.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Iterator | Define operaciones (`hasNext`, `next`) |
+| ConcreteIterator | Implementa el recorrido |
+| Aggregate | Define método para crear iterador |
+| ConcreteAggregate | Implementa la colección |
+| Client | Usa el iterador |
 
 ---
