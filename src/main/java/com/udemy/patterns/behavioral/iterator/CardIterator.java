@@ -1,16 +1,17 @@
 package com.udemy.patterns.behavioral.iterator;
 
+import java.util.NoSuchElementException;
+
 /**
  * ConcreteIterator: CardIterator
  */
-public class CardIterator implements Iterator {
+public class CardIterator implements MyIterator<Card> {
 
   private final Card[] cards;
-  private int position;
+  private int position = 0;
 
   public CardIterator(Card[] cards) {
     this.cards = cards;
-    position = 0;
   }
 
   @Override
@@ -19,12 +20,10 @@ public class CardIterator implements Iterator {
   }
 
   @Override
-  public Object next() {
+  public Card next() {
+    if (!hasNext()) {
+      throw new NoSuchElementException("No hay más elementos.");
+    }
     return cards[position++];
-  }
-
-  @Override
-  public Object currentItem() {
-    return cards[position];
   }
 }

@@ -1,9 +1,13 @@
 package com.udemy;
 
-import com.udemy.patterns.behavioral.command.*;
+import com.udemy.patterns.behavioral.command.ActivateCommand;
+import com.udemy.patterns.behavioral.command.Command;
+import com.udemy.patterns.behavioral.command.CreditCard;
+import com.udemy.patterns.behavioral.command.CreditCardInvoker;
+import com.udemy.patterns.behavioral.command.DeactivateCommand;
+import com.udemy.patterns.behavioral.iterator.CardCollection;
 import com.udemy.patterns.behavioral.iterator.CardList;
-import com.udemy.patterns.behavioral.iterator.Iterator;
-import com.udemy.patterns.behavioral.iterator.List;
+import com.udemy.patterns.behavioral.iterator.MyIterator;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -123,11 +127,11 @@ public class Main {
             new com.udemy.patterns.behavioral.iterator.Card("Apple Card")
     };
 
-    List lista = new CardList(cards);
-    Iterator iterator = lista.iterator();
+    CardCollection collection = new CardList(cards);
+    MyIterator<com.udemy.patterns.behavioral.iterator.Card> iterator = collection.iterator();
 
     while (iterator.hasNext()) {
-      com.udemy.patterns.behavioral.iterator.Card card = (com.udemy.patterns.behavioral.iterator.Card) iterator.next();
+      com.udemy.patterns.behavioral.iterator.Card card = iterator.next();
       System.out.println(card.getType());
     }
   }
