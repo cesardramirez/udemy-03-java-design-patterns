@@ -8,9 +8,10 @@ import com.udemy.patterns.behavioral.command.DeactivateCommand;
 import com.udemy.patterns.behavioral.iterator.CardCollection;
 import com.udemy.patterns.behavioral.iterator.CardList;
 import com.udemy.patterns.behavioral.iterator.MyIterator;
-import com.udemy.patterns.behavioral.mediator.ConcreteColleague1;
-import com.udemy.patterns.behavioral.mediator.ConcreteColleague2;
-import com.udemy.patterns.behavioral.mediator.ConcreteMediator;
+import com.udemy.patterns.behavioral.mediator.Colleague;
+import com.udemy.patterns.behavioral.mediator.Mediator;
+import com.udemy.patterns.behavioral.mediator.User;
+import com.udemy.patterns.behavioral.mediator.ChatMediator;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -141,14 +142,22 @@ public class Main {
   }
 
   private static void testMediator() {
-    ConcreteMediator mediator = new ConcreteMediator();
-    ConcreteColleague1 user1 = new ConcreteColleague1(mediator);
-    ConcreteColleague2 user2 = new ConcreteColleague2(mediator);
+    Mediator mediator = new ChatMediator();
 
-    mediator.setUser1(user1);
-    mediator.setUser2(user2);
+    Colleague user1 = new User(mediator, "User1");
+    Colleague user2 = new User(mediator, "User2");
+    Colleague user3 = new User(mediator, "User3");
 
-    user1.send("Hola soy user1");
+    mediator.register(user1);
+    mediator.register(user2);
+    mediator.register(user3);
+
+    user1.send("Hola a todos");
+    System.out.println("---");
     user2.send("Hola user1, soy user2");
+    System.out.println("---");
+    user3.send("Si, aparece que eres user2 en el mensaje");
+    System.out.println("---");
+    user2.send("Vale");
   }
 }
