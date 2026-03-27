@@ -13,7 +13,7 @@ Udemy - Patrones de Diseño en Java
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
   - [Iterator](#-iterator).
-  - Mediator.
+  - [Mediator](#-mediator).
 
 # Design Patterns
 
@@ -215,5 +215,31 @@ Separa la lógica de recorrido de la estructura de datos, facilitando cambios en
 | Aggregate | Define método para crear iterador |
 | ConcreteAggregate | Implementa la colección |
 | Client | Usa el iterador |
+
+---
+## 🤝 Mediator
+
+![Mediator UML](docs/img/09_UML_Mediator.png)
+
+### 📖 Descripción
+
+El patrón **Mediator** define un objeto que encapsula cómo interactúan un conjunto de objetos.
+
+En lugar de que los objetos se comuniquen directamente entre sí, lo hacen a través de un **mediador**, lo que reduce las dependencias y mejora la mantenibilidad.
+
+### 🎯 Problema que resuelve
+
+- Evita dependencias complejas entre múltiples objetos.
+- Reduce el acoplamiento (muchos a muchos → uno a muchos).
+- Centraliza la lógica de comunicación.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Mediator | Define la interfaz de comunicación |
+| ConcreteMediator | Implementa la coordinación |
+| Colleague | Clase que se comunica mediante el mediador |
+| ConcreteColleague | Implementación específica |
 
 ---
