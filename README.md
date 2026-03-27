@@ -13,6 +13,7 @@ Udemy - Patrones de Diseño en Java
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
   - [Iterator](#-iterator).
+  - Mediator.
 
 # Design Patterns
 

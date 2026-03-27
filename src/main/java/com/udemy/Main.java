@@ -8,6 +8,9 @@ import com.udemy.patterns.behavioral.command.DeactivateCommand;
 import com.udemy.patterns.behavioral.iterator.CardCollection;
 import com.udemy.patterns.behavioral.iterator.CardList;
 import com.udemy.patterns.behavioral.iterator.MyIterator;
+import com.udemy.patterns.behavioral.mediator.ConcreteColleague1;
+import com.udemy.patterns.behavioral.mediator.ConcreteColleague2;
+import com.udemy.patterns.behavioral.mediator.ConcreteMediator;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -38,7 +41,8 @@ public class Main {
     // ---- Behavioral Patterns ----
     //testChainOfResponsibility();
     //testCommand();
-    testIterator();
+    //testIterator();
+    testMediator();
   }
 
   private static void testFactoryMethod() {
@@ -134,5 +138,17 @@ public class Main {
       com.udemy.patterns.behavioral.iterator.Card card = iterator.next();
       System.out.println(card.getType());
     }
+  }
+
+  private static void testMediator() {
+    ConcreteMediator mediator = new ConcreteMediator();
+    ConcreteColleague1 user1 = new ConcreteColleague1(mediator);
+    ConcreteColleague2 user2 = new ConcreteColleague2(mediator);
+
+    mediator.setUser1(user1);
+    mediator.setUser2(user2);
+
+    user1.send("Hola soy user1");
+    user2.send("Hola user1, soy user2");
   }
 }
