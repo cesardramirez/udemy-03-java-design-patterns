@@ -12,6 +12,9 @@ import com.udemy.patterns.behavioral.mediator.Colleague;
 import com.udemy.patterns.behavioral.mediator.Mediator;
 import com.udemy.patterns.behavioral.mediator.User;
 import com.udemy.patterns.behavioral.mediator.ChatMediator;
+import com.udemy.patterns.behavioral.memento.Article;
+import com.udemy.patterns.behavioral.memento.ArticleMemento;
+import com.udemy.patterns.behavioral.memento.Caretaker;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -43,7 +46,8 @@ public class Main {
     //testChainOfResponsibility();
     //testCommand();
     //testIterator();
-    testMediator();
+    //testMediator();
+    testMemento();
   }
 
   private static void testFactoryMethod() {
@@ -159,5 +163,32 @@ public class Main {
     user3.send("Si, aparece que eres user2 en el mensaje");
     System.out.println("---");
     user2.send("Vale");
+  }
+
+  private static void testMemento() {
+    Caretaker caretaker = new Caretaker();
+    Article article = new Article("César", "Memento es una película");
+    article.setText(article.getText() + " de Nolan");
+    System.out.println(article.getText());
+
+    caretaker.addMemento(article.createMemento());
+    article.setText(article.getText() + " protagonizada por Guy Pearce");
+    System.out.println(article.getText());
+
+    caretaker.addMemento(article.createMemento());
+
+    article.setText(article.getText() + " y Leonardo DiCaprio");
+    System.out.println(article.getText());
+
+    ArticleMemento memento1 = caretaker.getMemento(0);
+    ArticleMemento memento2 = caretaker.getMemento(1);
+
+    article.restore(memento1);
+    System.out.println(article.getText());
+
+    article.restore(memento2);
+    System.out.println(article.getText());
+
+    article.setText(article.getText() + " del año 2026");
   }
 }
