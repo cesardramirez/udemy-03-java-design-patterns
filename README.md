@@ -270,3 +270,29 @@ Se utiliza comúnmente para implementar funcionalidades como **undo/redo**.
 | Caretaker | Gestiona los mementos (historial) |
 
 ---
+## 📡 Observer
+
+![Observer UML](docs/img/11_UML_Observer.png)
+
+### 📖 Descripción
+
+El patrón **Observer** establece un mecanismo de suscripción donde múltiples objetos (**observers**) escuchan cambios en otro objeto (**subject**).
+
+Cuando el estado del sujeto cambia, todos los observadores son notificados automáticamente.
+
+### 🎯 Problema que resuelve
+
+- Permite comunicación desacoplada entre objetos.
+- Facilita la implementación de sistemas reactivos.
+- Evita polling constante (consultas repetidas).
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Subject | Mantiene lista de observadores |
+| Observer | Define método de actualización |
+| ConcreteSubject | Notifica cambios |
+| ConcreteObserver | Reacciona a cambios |
+
+---
