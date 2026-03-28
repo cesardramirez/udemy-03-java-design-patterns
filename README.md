@@ -14,7 +14,8 @@ Udemy - Patrones de Diseño en Java
   - [Command](#-command).
   - [Iterator](#-iterator).
   - [Mediator](#-mediator).
-  - Memento.
+  - [Memento](#-memento).
+  - Observer.
 
 # Design Patterns
 

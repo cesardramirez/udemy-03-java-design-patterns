@@ -8,12 +8,17 @@ import com.udemy.patterns.behavioral.command.DeactivateCommand;
 import com.udemy.patterns.behavioral.iterator.CardCollection;
 import com.udemy.patterns.behavioral.iterator.CardList;
 import com.udemy.patterns.behavioral.iterator.MyIterator;
+import com.udemy.patterns.behavioral.mediator.ChatMediator;
 import com.udemy.patterns.behavioral.mediator.Colleague;
 import com.udemy.patterns.behavioral.mediator.Mediator;
 import com.udemy.patterns.behavioral.mediator.User;
-import com.udemy.patterns.behavioral.mediator.ChatMediator;
 import com.udemy.patterns.behavioral.memento.Article;
 import com.udemy.patterns.behavioral.memento.Caretaker;
+import com.udemy.patterns.behavioral.observer.ColorTrafficLight;
+import com.udemy.patterns.behavioral.observer.Driver;
+import com.udemy.patterns.behavioral.observer.MessagePublisher;
+import com.udemy.patterns.behavioral.observer.TrafficLight;
+import com.udemy.patterns.behavioral.observer.Walker;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -46,7 +51,8 @@ public class Main {
     //testCommand();
     //testIterator();
     //testMediator();
-    testMemento();
+    //testMemento();
+    testObserver();
   }
 
   private static void testFactoryMethod() {
@@ -192,5 +198,24 @@ public class Main {
     System.out.println(article.getText());
 
     article.setText(article.getText() + " del año 2026");
+  }
+
+  private static void testObserver() {
+    Driver driver = new Driver();
+    Walker walker = new Walker();
+    MessagePublisher messagePublisher = new MessagePublisher();
+
+    messagePublisher.attach(driver);
+    messagePublisher.attach(walker);
+    messagePublisher.notifyUpdate(new TrafficLight(ColorTrafficLight.RED));
+
+    try {
+      Thread.sleep(2000);
+      System.out.println("** EL SEMÁFORO CAMBIÓ **");
+    } catch (Exception e) {
+      throw new RuntimeException(e);
+    }
+
+    messagePublisher.notifyUpdate(new TrafficLight(ColorTrafficLight.GREEN));
   }
 }
