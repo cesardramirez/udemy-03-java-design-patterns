@@ -29,12 +29,4 @@ public class Article {
   public void setText(String text) {
     this.text = text;
   }
-
-  public String getAutor() {
-    return autor;
-  }
-
-  public void setAutor(String autor) {
-    this.autor = autor;
-  }
 }

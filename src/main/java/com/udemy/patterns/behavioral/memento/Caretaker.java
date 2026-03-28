@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class Caretaker {
 
-  private List<ArticleMemento> states = new ArrayList<>();
+  private final List<ArticleMemento> states = new ArrayList<>();
 
   public void addMemento(ArticleMemento memento) {
     states.add(memento);
