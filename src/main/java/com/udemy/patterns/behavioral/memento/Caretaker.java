@@ -1,20 +1,23 @@
 package com.udemy.patterns.behavioral.memento;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Stack;
 
 /**
  * Caretaker: Caretaker
  */
 public class Caretaker {
 
-  private final List<ArticleMemento> states = new ArrayList<>();
+  private final Stack<Article.Memento> states = new Stack<>();
 
-  public void addMemento(ArticleMemento memento) {
-    states.add(memento);
+  public void save(Article article) {
+    states.push(article.save());
   }
 
-  public ArticleMemento getMemento(int index) {
-    return states.get(index);
+  public void undo(Article article) {
+    if (!states.isEmpty()) {
+      article.restore(states.pop());
+    } else {
+      System.out.println("No hay estados para restaurar");
+    }
   }
 }

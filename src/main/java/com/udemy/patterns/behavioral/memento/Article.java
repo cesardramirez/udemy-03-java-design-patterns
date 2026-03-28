@@ -5,21 +5,34 @@ package com.udemy.patterns.behavioral.memento;
  */
 public class Article {
 
-  private String autor;
+  private String author;
   private String text;
 
-  public Article(String autor, String text) {
-    this.autor = autor;
+  public Article(String author, String text) {
+    this.author = author;
     this.text = text;
   }
 
-  public ArticleMemento createMemento() {
-    return new ArticleMemento(autor, text);
+  /**
+   * Memento: Memento (interno, encapsulado)
+   */
+  public static class Memento {
+    private final String author;
+    private final String text;
+
+    public Memento(String author, String text) {
+      this.author = author;
+      this.text = text;
+    }
   }
 
-  public void restore(ArticleMemento memento) {
-    this.autor = memento.getAutor();
-    this.text = memento.getText();
+  public Memento save() {
+    return new Memento(author, text);
+  }
+
+  public void restore(Memento memento) {
+    this.author = memento.author;
+    this.text = memento.text;
   }
 
   public String getText() {
