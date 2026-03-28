@@ -244,3 +244,28 @@ En lugar de que los objetos se comuniquen directamente entre sí, lo hacen a tra
 | ConcreteColleague | Implementación específica |
 
 ---
+## 🧠 Memento
+
+![Memento UML](docs/img/10_UML_Memento.png)
+
+### 📖 Descripción
+
+El patrón **Memento** permite guardar el estado de un objeto en un momento determinado y restaurarlo posteriormente, sin exponer sus detalles internos.
+
+Se utiliza comúnmente para implementar funcionalidades como **undo/redo**.
+
+### 🎯 Problema que resuelve
+
+- Permite guardar y restaurar estados sin romper encapsulamiento.
+- Facilita implementar historial de cambios.
+- Evita exponer atributos internos del objeto.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Originator | Objeto cuyo estado se guarda |
+| Memento | Contiene el estado guardado |
+| Caretaker | Gestiona los mementos (historial) |
+
+---
