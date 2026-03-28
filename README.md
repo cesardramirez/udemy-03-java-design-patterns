@@ -15,7 +15,7 @@ Udemy - Patrones de Diseño en Java
   - [Iterator](#-iterator).
   - [Mediator](#-mediator).
   - [Memento](#-memento).
-  - Observer.
+  - [Observer](#-observer).
 
 # Design Patterns
 
@@ -40,6 +40,19 @@ El patrón **Factory Method** define una interfaz para crear objetos, pero permi
 | Creator | Clase base con factory method |
 | ConcreteCreator | Implementación concreta |
 
+### 🔎 Cuándo usarlo
+- Cuando no sabes qué objeto exacto crear en tiempo de compilación.
+- Cuando quieres delegar la creación a subclases.
+- Cuando quieres evitar usar `new` directamente.
+- Cuando tienes lógica condicional de creación.
+
+#### Ejemplos reales
+- Creación de tarjetas de crédito (visa, mastercard, amex).
+- Notificaciones (email, sms, push).
+- Parsers de archivos (json, xml, csv).
+- Conexiones a bases de datos (mysql, mongodb).
+- Frameworks.
+
 ---
 ## 🏭 Abstract Factory
 
@@ -63,6 +76,17 @@ Permite que el cliente trabaje únicamente con interfaces, desacoplando completa
 | AbstractProduct | Interfaz común de los productos |
 | ConcreteProduct | Implementaciones específicas |
 | Client | Usa solo interfaces |
+
+### 🔎 Cuándo usarlo
+- Cuando tienes múltiples de objetos relacionados (familias).
+- Cuando necesitas cambiar toda la configuración de una vez.
+- Cuando quieres garantizar compatibilidad entre objetos.
+- Cuando buscas desacoplar creación de uso.
+
+#### Ejemplos reales
+- Sistemas de pagos.
+- UI Multiplataforma.
+- Drivers de Base de Datos.
 
 ---
 ## 🏗️ Builder
@@ -90,6 +114,18 @@ Es ideal cuando:
 | Director (opcional) | Orquesta el proceso de construcción |
 | Product | Objeto final complejo |
 
+### 🔎 Cuándo usarlo
+- Cuando se tienen muchos parámetros.
+- Cuando el objeto es difícil de construir.
+- Cuando se quiere inmutabilidad (campos final).
+- Cuando se necesita diferentes configuraciones del mismo objeto.
+
+#### Ejemplos reales
+- Requests HTTP.
+- Configuración de bases de datos.
+- Creación de documentos.
+- Órdenes de compra.
+
 ---
 ## 🧬 Prototype
 
@@ -111,6 +147,19 @@ Esto es útil cuando la creación de objetos es **costosa o compleja**, y es má
 | Prototype | Interfaz que define el método `clone()` o `copy()` |
 | ConcretePrototype | Implementa la clonación                            |
 | Client | Clona el objeto existente                          |
+
+### 🔎 Cuándo usarlo
+- Cuando crear un objeto es costoso.
+- Cuando necesitas muchas instancias similares.
+- Cuando quieres evitar dependencias con constructores complejos.
+
+#### Ejemplos reales
+- Editores gráficos.
+- Juegos de cartas.
+- Videojuegos.
+- Plantillas de documentos.
+- Requests HTTP.
+- Testing BD.
 
 ---
 ## 🔒 Singleton
@@ -136,6 +185,17 @@ Se utiliza comúnmente para objetos que deben ser **compartidos en toda la aplic
 | Instance | Instancia única accesible globalmente |
 | Client | Obtiene la instancia mediante un método estático |
 
+### 🔎 Cuándo usarlo
+- Cuando hay una única instancia en toda la aplicación.
+- Cuando hay un punto de acceso global controlado.
+
+#### Ejemplos reales
+- Configuraciones globales.
+- Conexión a recursos compartidos.
+- Caché en memoria.
+- Pool de conexiones.
+- Logger.
+
 ---
 ## ⛓️ Chain of Responsibility
 
@@ -160,6 +220,17 @@ Los objetos se organizan en una **cadena**, y cada uno decide si puede procesar 
 | Handler | Define la interfaz para manejar solicitudes |
 | ConcreteHandler | Procesa la solicitud o la pasa al siguiente |
 | Client | Inicia la solicitud en la cadena |
+
+### 🔎 Cuándo usarlo
+- Cuando varios objetos pueden manejar una solicitud.
+- Cuando no se sabe de antemano quién debe procesarla.
+- Cuando quieres construir pipelines de procesamiento.
+
+#### Ejemplos reales
+- Middleware de autenticación.
+- Filtros HTTP.
+- Validaciones en cascada.
+- Procesamiento de logs.
 
 ---
 ## 🎮 Command
@@ -191,6 +262,15 @@ Esto permite:
 | Invoker | Llama al comando |
 | Client | Configura los comandos |
 
+### 🔎 Cuándo usarlo
+- Botones de UI (acciones desacopladas).
+- Sistemas con undo/redo.
+- Colas de tareas.
+- Logs de operaciones.
+
+#### Ejemplo real
+- Un control remoto donde cada botón es un comando.
+
 ---
 ## 🔁 Iterator
 
@@ -218,6 +298,16 @@ Separa la lógica de recorrido de la estructura de datos, facilitando cambios en
 | ConcreteAggregate | Implementa la colección |
 | Client | Usa el iterador |
 
+### 🔎 Cuándo usarlo
+- Cuando quieres recorrer una colección sin exponer su implementación.
+- Cuando necesitas múltiples formas de iteración.
+- Cuando quieres unificar el acceso a diferentes estructuras de datos.
+
+#### Ejemplos reales
+- Colecciones en Java (List, Set).
+- Streams.
+- Navegación en árboles o grafos.
+
 ---
 ## 🤝 Mediator
 
@@ -244,6 +334,16 @@ En lugar de que los objetos se comuniquen directamente entre sí, lo hacen a tra
 | Colleague | Clase que se comunica mediante el mediador |
 | ConcreteColleague | Implementación específica |
 
+### 🔎 Cuándo usarlo
+- Cuando muchos objetos interactúan entre sí.
+- Cuando la lógica de comunicación está distribuida y se vuelve difícil de mantener.
+- Cuando quieres centralizar reglas de interacción.
+
+#### Ejemplos reales
+- Chats (usuarios → mediador).
+- Controladores de UI.
+- Sistemas de eventos.
+
 ---
 ## 🧠 Memento
 
@@ -268,6 +368,16 @@ Se utiliza comúnmente para implementar funcionalidades como **undo/redo**.
 | Originator | Objeto cuyo estado se guarda |
 | Memento | Contiene el estado guardado |
 | Caretaker | Gestiona los mementos (historial) |
+
+### 🔎 Cuándo usarlo
+- Cuando necesitas implementar undo/redo.
+- Cuando quieres guardar snapshots de estado.
+- Cuando necesitas restaurar objetos sin exponer su estructura interna.
+
+#### Ejemplos reales
+- Editores de texto.
+- Juegos (guardar partida).
+- Sistemas de historial.
 
 ---
 ## 📡 Observer
@@ -294,5 +404,15 @@ Cuando el estado del sujeto cambia, todos los observadores son notificados autom
 | Observer | Define método de actualización |
 | ConcreteSubject | Notifica cambios |
 | ConcreteObserver | Reacciona a cambios |
+
+### 🔎 Cuándo usarlo
+- Cuando múltiples objetos deben reaccionar a cambios.
+- Cuando quieres desacoplar productores y consumidores de eventos.
+- Cuando implementas sistemas basados en eventos.
+
+#### Ejemplos reales
+- Notificaciones (email, push).
+- Interfaces gráficas (event listeners).
+- Sistemas de eventos.
 
 ---
