@@ -4,5 +4,5 @@ package com.udemy.patterns.behavioral.observer;
  * Observer: Observer
  */
 public interface Observer {
-  void update(TrafficLight trafficLight);
+  void update(ColorTrafficLight colorTrafficLight);
 }

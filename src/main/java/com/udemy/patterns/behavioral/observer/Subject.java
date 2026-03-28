@@ -8,5 +8,5 @@ public interface Subject {
 
   void detach(Observer o);
 
-  void notifyUpdate(TrafficLight trafficLight);
+  void notifyObservers();
 }

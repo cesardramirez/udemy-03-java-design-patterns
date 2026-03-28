@@ -14,10 +14,9 @@ import com.udemy.patterns.behavioral.mediator.Mediator;
 import com.udemy.patterns.behavioral.mediator.User;
 import com.udemy.patterns.behavioral.memento.Article;
 import com.udemy.patterns.behavioral.memento.Caretaker;
-import com.udemy.patterns.behavioral.observer.ColorTrafficLight;
 import com.udemy.patterns.behavioral.observer.Driver;
-import com.udemy.patterns.behavioral.observer.MessagePublisher;
 import com.udemy.patterns.behavioral.observer.TrafficLight;
+import com.udemy.patterns.behavioral.observer.ColorTrafficLight;
 import com.udemy.patterns.behavioral.observer.Walker;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
@@ -38,7 +37,7 @@ import java.time.YearMonth;
 
 
 public class Main {
-  public static void main(String[] args) {
+  public static void main(String[] args) throws InterruptedException {
     // ---- Creational Patterns ----
     //testFactoryMethod();
     //testAbstractFactory();
@@ -200,22 +199,14 @@ public class Main {
     article.setText(article.getText() + " del año 2026");
   }
 
-  private static void testObserver() {
-    Driver driver = new Driver();
-    Walker walker = new Walker();
-    MessagePublisher messagePublisher = new MessagePublisher();
+  private static void testObserver() throws InterruptedException {
+    TrafficLight trafficLight = new TrafficLight();
+    trafficLight.attach(new Driver());
+    trafficLight.attach(new Walker());
 
-    messagePublisher.attach(driver);
-    messagePublisher.attach(walker);
-    messagePublisher.notifyUpdate(new TrafficLight(ColorTrafficLight.RED));
-
-    try {
-      Thread.sleep(2000);
-      System.out.println("** EL SEMÁFORO CAMBIÓ **");
-    } catch (Exception e) {
-      throw new RuntimeException(e);
-    }
-
-    messagePublisher.notifyUpdate(new TrafficLight(ColorTrafficLight.GREEN));
+    trafficLight.setStatus(ColorTrafficLight.RED);
+    Thread.sleep(2000);
+    System.out.println("** EL SEMÁFORO CAMBIÓ **");
+    trafficLight.setStatus(ColorTrafficLight.GREEN);
   }
 }
