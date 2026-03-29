@@ -18,6 +18,9 @@ import com.udemy.patterns.behavioral.observer.Driver;
 import com.udemy.patterns.behavioral.observer.TrafficLight;
 import com.udemy.patterns.behavioral.observer.ColorTrafficLight;
 import com.udemy.patterns.behavioral.observer.Walker;
+import com.udemy.patterns.behavioral.state.MobileAlertStateContext;
+import com.udemy.patterns.behavioral.state.Silent;
+import com.udemy.patterns.behavioral.state.Vibration;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -51,7 +54,8 @@ public class Main {
     //testIterator();
     //testMediator();
     //testMemento();
-    testObserver();
+    //testObserver();
+    testState();
   }
 
   private static void testFactoryMethod() {
@@ -208,5 +212,17 @@ public class Main {
     Thread.sleep(2000);
     System.out.println("** EL SEMÁFORO CAMBIÓ **");
     trafficLight.setStatus(ColorTrafficLight.GREEN);
+  }
+
+  private static void testState() {
+    MobileAlertStateContext context = new MobileAlertStateContext();
+    context.alert();
+    context.alert();
+    context.setCurrentState(new Vibration());
+    context.alert();
+    context.alert();
+    context.setCurrentState(new Silent());
+    context.alert();
+    context.alert();
   }
 }
