@@ -14,9 +14,9 @@ import com.udemy.patterns.behavioral.mediator.Mediator;
 import com.udemy.patterns.behavioral.mediator.User;
 import com.udemy.patterns.behavioral.memento.Article;
 import com.udemy.patterns.behavioral.memento.Caretaker;
+import com.udemy.patterns.behavioral.observer.ColorTrafficLight;
 import com.udemy.patterns.behavioral.observer.Driver;
 import com.udemy.patterns.behavioral.observer.TrafficLight;
-import com.udemy.patterns.behavioral.observer.ColorTrafficLight;
 import com.udemy.patterns.behavioral.observer.Walker;
 import com.udemy.patterns.behavioral.state.MobileAlertStateContext;
 import com.udemy.patterns.behavioral.state.Silent;
@@ -217,12 +217,11 @@ public class Main {
   private static void testState() {
     MobileAlertStateContext context = new MobileAlertStateContext();
     context.alert();
+    context.setState(Vibration.INSTANCE);
     context.alert();
-    context.setCurrentState(new Vibration());
+    context.setState(Silent.INSTANCE);
     context.alert();
-    context.alert();
-    context.setCurrentState(new Silent());
-    context.alert();
-    context.alert();
+
+    System.out.println("\nEstado actual: " + context.getCurrentState());
   }
 }

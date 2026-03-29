@@ -8,14 +8,21 @@ public class MobileAlertStateContext {
   private MobileAlertState currentState;
 
   public MobileAlertStateContext() {
-    this.currentState = new Sound();
+    this.currentState = Sound.INSTANCE;
   }
 
-  public void setCurrentState(MobileAlertState state) {
+  public void setState(MobileAlertState state) {
+    if (state == null) {
+      throw new  IllegalArgumentException("State may not be null");
+    }
     this.currentState = state;
   }
 
   public void alert() {
-    this.currentState.alert(this);
+    currentState.alert(this);
+  }
+
+  public String getCurrentState() {
+    return currentState.getClass().getSimpleName();
   }
 }

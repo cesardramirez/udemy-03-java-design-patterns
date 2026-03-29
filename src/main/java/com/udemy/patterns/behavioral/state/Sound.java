@@ -5,6 +5,8 @@ package com.udemy.patterns.behavioral.state;
  */
 public class Sound implements MobileAlertState {
 
+  public static final Sound INSTANCE = new Sound();
+
   @Override
   public void alert(MobileAlertStateContext context) {
     System.out.println("Ring... Ring...");
