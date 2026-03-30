@@ -8,6 +8,9 @@ public class TerminalExpression implements Expression {
   private final String value;
 
   public TerminalExpression(String value) {
+    if (value == null || value.isEmpty()) {
+      throw new IllegalArgumentException("Value cannot be null or empty");
+    }
     this.value = value.toLowerCase();
   }
 

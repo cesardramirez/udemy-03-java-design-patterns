@@ -1,5 +1,6 @@
 package com.udemy.patterns.behavioral.interpreter;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,12 +15,13 @@ public class Context {
   public Context(String input) {
     this.tokens = new HashSet<>();
 
-    for (String token : input.split(",")) {
-      tokens.add(token.trim().toLowerCase());
-    }
+    Arrays.stream(input.split(","))
+            .map(String::trim)
+            .map(String::toLowerCase)
+            .forEach(tokens::add);
   }
 
   public boolean contains(String value) {
-    return tokens.contains(value.trim().toLowerCase());
+    return tokens.contains(value.toLowerCase());
   }
 }

@@ -238,16 +238,15 @@ public class Main {
 
     Expression orExp = new OrExpression(zero, one);
     Expression andExp = new AndExpression(zero, one);
-    Expression notExp = new NotExpression(one);
+    Expression notOneExp = new NotExpression(one);
 
     Context context1 = new Context("0");
     Context context2 = new Context("0, 1");
 
     System.out.println("OR con '0': " + orExp.interpret(context1));
     System.out.println("AND con '0': " + andExp.interpret(context1));
-
     System.out.println("AND con '0,1': " + andExp.interpret(context2));
-    System.out.println("NOT 1 con '0,1': " + notExp.interpret(context2));
-    System.out.println("NOT 1 con '0': " + notExp.interpret(context1));
+    System.out.println("NOT 1 con '0,1': " + notOneExp.interpret(context2));
+    System.out.println("NOT 1 con '0': " + notOneExp.interpret(context1));
   }
 }
