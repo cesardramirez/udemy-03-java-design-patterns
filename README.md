@@ -12,12 +12,13 @@ Udemy - Patrones de Diseño en Java
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
-  - Interpreter.
+  - [Interpreter](#-interpreter).
   - [Iterator](#-iterator).
   - [Mediator](#-mediator).
   - [Memento](#-memento).
   - [Observer](#-observer).
   - [State](#-state).
+  - Strategy.
 
 # Design Patterns
 

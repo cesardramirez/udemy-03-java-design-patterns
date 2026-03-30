@@ -27,6 +27,8 @@ import com.udemy.patterns.behavioral.observer.Walker;
 import com.udemy.patterns.behavioral.state.MobileAlertStateContext;
 import com.udemy.patterns.behavioral.state.Silent;
 import com.udemy.patterns.behavioral.state.Vibration;
+import com.udemy.patterns.behavioral.strategy.LowerStrategyTextFormatter;
+import com.udemy.patterns.behavioral.strategy.UpperStrategyTextFormatter;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -62,7 +64,8 @@ public class Main {
     //testMemento();
     //testObserver();
     //testState();
-    testInterpreter();
+    //testInterpreter();
+    testStrategy();
   }
 
   private static void testFactoryMethod() {
@@ -248,5 +251,14 @@ public class Main {
     System.out.println("AND con '0,1': " + andExp.interpret(context2));
     System.out.println("NOT 1 con '0,1': " + notOneExp.interpret(context2));
     System.out.println("NOT 1 con '0': " + notOneExp.interpret(context1));
+  }
+
+  private static void testStrategy() {
+    com.udemy.patterns.behavioral.strategy.Context context =
+            new com.udemy.patterns.behavioral.strategy.Context(new UpperStrategyTextFormatter());
+    context.publishText("Este texto será convertido a MAYÚSCULAS a través del algoritmo.");
+
+    context = new com.udemy.patterns.behavioral.strategy.Context(new LowerStrategyTextFormatter());
+    context.publishText("Este texto será convertido a MINÚSCULAS a través del algoritmo.");
   }
 }
