@@ -5,6 +5,10 @@ import com.udemy.patterns.behavioral.command.Command;
 import com.udemy.patterns.behavioral.command.CreditCard;
 import com.udemy.patterns.behavioral.command.CreditCardInvoker;
 import com.udemy.patterns.behavioral.command.DeactivateCommand;
+import com.udemy.patterns.behavioral.interpreter.AndExpression;
+import com.udemy.patterns.behavioral.interpreter.Expression;
+import com.udemy.patterns.behavioral.interpreter.OrExpression;
+import com.udemy.patterns.behavioral.interpreter.TerminalExpression;
 import com.udemy.patterns.behavioral.iterator.CardCollection;
 import com.udemy.patterns.behavioral.iterator.CardList;
 import com.udemy.patterns.behavioral.iterator.MyIterator;
@@ -55,7 +59,8 @@ public class Main {
     //testMediator();
     //testMemento();
     //testObserver();
-    testState();
+    //testState();
+    testInterpreter();
   }
 
   private static void testFactoryMethod() {
@@ -223,5 +228,19 @@ public class Main {
     context.alert();
 
     System.out.println("\nEstado actual: " + context.getCurrentState());
+  }
+
+  private static void testInterpreter() {
+    Expression zero = new TerminalExpression("0");
+    Expression one = new TerminalExpression("1");
+
+    Expression containBoolean = new OrExpression(zero, one);
+    Expression containOneAndCero = new AndExpression(zero, one);
+
+    System.out.println("¿Contiene la palabra zero? " + containBoolean.interpret("zero"));
+    System.out.println("¿Contiene el valor 0? " + containBoolean.interpret("0"));
+
+    System.out.println("¿Contiene el valor 0 y 1 enviando sólo 0? " + containOneAndCero.interpret("0"));
+    System.out.println("¿Contiene el valor 0 y 1 enviando 0 y 1? " + containOneAndCero.interpret("0, 1"));
   }
 }
