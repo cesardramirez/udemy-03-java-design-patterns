@@ -274,6 +274,44 @@ Esto permite:
 - Un control remoto donde cada botón es un comando.
 
 ---
+## 🧠 Interpreter
+
+![Interpreter UML](docs/img/13_UML_Interpreter.png)
+
+### 📖 Descripción
+
+El patrón **Interpreter** se utiliza para definir una gramática y evaluar expresiones de un lenguaje específico.
+
+Convierte expresiones en estructuras (normalmente árboles) donde cada nodo sabe cómo interpretarse.
+
+### 🎯 Problema que resuelve
+
+- Permite evaluar expresiones complejas de forma estructurada.
+- Facilita la creación de mini-lenguajes o reglas.
+- Evita lógica condicional compleja para parsing.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Expression | Interfaz para interpretar |
+| TerminalExpression | Elementos básicos del lenguaje |
+| NonTerminalExpression | Combinación de expresiones |
+| Context | Contiene información a interpretar |
+| Client | Construye y evalúa la expresión |
+
+### 🔎 Cuándo usar Interpreter
+- Cuando tienes un lenguaje simple que necesitas interpretar.
+- Cuando necesitas evaluar reglas dinámicas.
+- Cuando quieres representar expresiones como estructuras (árboles).
+
+#### Ejemplos reales
+- Motores de reglas (rule engines).
+- Filtros de búsqueda.
+- Expresiones booleanas (AND, OR, NOT).
+- Parsers simples.
+
+---
 ## 🔁 Iterator
 
 ![Iterator UML](docs/img/08_UML_Iterator.png)

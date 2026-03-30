@@ -1,5 +1,8 @@
 package com.udemy.patterns.behavioral.interpreter;
 
+/**
+ * NonTerminalExpression: NotExpression
+ */
 public class NotExpression implements Expression {
 
   private final Expression expression;
