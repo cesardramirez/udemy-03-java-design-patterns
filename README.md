@@ -416,3 +416,30 @@ Cuando el estado del sujeto cambia, todos los observadores son notificados autom
 - Sistemas de eventos.
 
 ---
+## 🔄 State
+
+![State UML](docs/img/12_UML_State.png)
+
+### 📖 Descripción
+
+El patrón **State** permite que un objeto altere su comportamiento cuando su estado interno cambia, como si cambiara de clase.
+
+En lugar de usar múltiples condicionales (`if` / `switch`), el comportamiento se delega a objetos que representan cada estado.
+
+### 🎯 Problema que resuelve
+
+- Elimina grandes bloques de condicionales.
+- Facilita agregar nuevos estados sin modificar el código existente.
+- Mejora la mantenibilidad y escalabilidad.
+
+### 🔎 Cuándo usarlo
+- Cuando un objeto cambia su comportamiento según su estado.
+- Cuando hay muchos if o switch basados en estado.
+- Cuando quieres modelar transiciones de estados claramente.
+
+#### Ejemplos reales
+- Estados de una orden (CREATED → PAID → SHIPPED).
+- Estados de una conexión (OPEN → CLOSED).
+- Flujo de una máquina de estados.
+
+---
