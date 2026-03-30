@@ -6,7 +6,9 @@ import com.udemy.patterns.behavioral.command.CreditCard;
 import com.udemy.patterns.behavioral.command.CreditCardInvoker;
 import com.udemy.patterns.behavioral.command.DeactivateCommand;
 import com.udemy.patterns.behavioral.interpreter.AndExpression;
+import com.udemy.patterns.behavioral.interpreter.Context;
 import com.udemy.patterns.behavioral.interpreter.Expression;
+import com.udemy.patterns.behavioral.interpreter.NotExpression;
 import com.udemy.patterns.behavioral.interpreter.OrExpression;
 import com.udemy.patterns.behavioral.interpreter.TerminalExpression;
 import com.udemy.patterns.behavioral.iterator.CardCollection;
@@ -234,13 +236,18 @@ public class Main {
     Expression zero = new TerminalExpression("0");
     Expression one = new TerminalExpression("1");
 
-    Expression containBoolean = new OrExpression(zero, one);
-    Expression containOneAndCero = new AndExpression(zero, one);
+    Expression orExp = new OrExpression(zero, one);
+    Expression andExp = new AndExpression(zero, one);
+    Expression notExp = new NotExpression(one);
 
-    System.out.println("¿Contiene la palabra zero? " + containBoolean.interpret("zero"));
-    System.out.println("¿Contiene el valor 0? " + containBoolean.interpret("0"));
+    Context context1 = new Context("0");
+    Context context2 = new Context("0, 1");
 
-    System.out.println("¿Contiene el valor 0 y 1 enviando sólo 0? " + containOneAndCero.interpret("0"));
-    System.out.println("¿Contiene el valor 0 y 1 enviando 0 y 1? " + containOneAndCero.interpret("0, 1"));
+    System.out.println("OR con '0': " + orExp.interpret(context1));
+    System.out.println("AND con '0': " + andExp.interpret(context1));
+
+    System.out.println("AND con '0,1': " + andExp.interpret(context2));
+    System.out.println("NOT 1 con '0,1': " + notExp.interpret(context2));
+    System.out.println("NOT 1 con '0': " + notExp.interpret(context1));
   }
 }

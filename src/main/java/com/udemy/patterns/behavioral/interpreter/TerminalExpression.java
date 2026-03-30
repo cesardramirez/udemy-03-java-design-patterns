@@ -5,14 +5,14 @@ package com.udemy.patterns.behavioral.interpreter;
  */
 public class TerminalExpression implements Expression {
 
-  private String text;
+  private final String value;
 
-  public TerminalExpression(String text) {
-    this.text = text;
+  public TerminalExpression(String value) {
+    this.value = value.toLowerCase();
   }
 
   @Override
-  public boolean interpret(String context) {
-    return context.contains(text);
+  public boolean interpret(Context context) {
+    return context.contains(value);
   }
 }
