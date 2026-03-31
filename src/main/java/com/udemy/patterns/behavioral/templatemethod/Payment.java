@@ -5,13 +5,25 @@ package com.udemy.patterns.behavioral.templatemethod;
  */
 public abstract class Payment {
 
-  abstract void initialize();
-  abstract void startPayment();
-  abstract void endPayment();
-
-  public final void makePayment() {
+  // Template Method (algoritmo fijo).
+  public final void makePayment(double amount) {
     initialize();
-    startPayment();
-    endPayment();
+
+    if (validate(amount)) {
+      startPayment(amount);
+      endPayment();
+    } else {
+      System.out.println("Pago rechazado: monto inválido.");
+    }
+  }
+
+  // Métodos obligatorios.
+  protected abstract void initialize();
+  protected abstract void startPayment(double amount);
+  protected abstract void endPayment();
+
+  // Hook (opcional)
+  protected boolean validate(double amount) {
+    return amount > 0;
   }
 }

@@ -6,17 +6,23 @@ package com.udemy.patterns.behavioral.templatemethod;
 public class PayPal extends Payment {
 
   @Override
-  void initialize() {
-    System.out.println("Inicializando el pago con PayPal...");
+  protected void initialize() {
+    System.out.println("Inicializando pago con PayPal...");
   }
 
   @Override
-  void startPayment() {
-    System.out.println("Realizando el pago con PayPal...");
+  protected void startPayment(double amount ) {
+    System.out.println("Pagando $" + amount + " con PayPal...");
   }
 
   @Override
-  void endPayment() {
-    System.out.println("Finalizando el pago a través de los servidores PayPal...");
+  protected void endPayment() {
+    System.out.println("Pago finalizado en servidores PayPal");
+  }
+
+  @Override
+  protected boolean validate(double amount) {
+    System.out.println("Validando pago en PayPal...");
+    return amount >= 10; // PayPal requiere mínimo
   }
 }

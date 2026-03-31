@@ -267,11 +267,12 @@ public class Main {
   private static void testTemplateMethod() {
     com.udemy.patterns.behavioral.templatemethod.Payment payment =
             new com.udemy.patterns.behavioral.templatemethod.Visa();
-    payment.makePayment();
-
+    payment.makePayment(100);
     System.out.println("-----");
 
     payment = new PayPal();
-    payment.makePayment();
+    payment.makePayment(5);  // Falla validación
+    System.out.println("-----");
+    payment.makePayment(50); // Ok
   }
 }

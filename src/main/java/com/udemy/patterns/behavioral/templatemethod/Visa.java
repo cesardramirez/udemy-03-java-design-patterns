@@ -6,17 +6,17 @@ package com.udemy.patterns.behavioral.templatemethod;
 public class Visa extends Payment {
 
   @Override
-  void initialize() {
-    System.out.println("Inicializando el pago con Visa...");
+  protected void initialize() {
+    System.out.println("Inicializando pago con Visa...");
   }
 
   @Override
-  void startPayment() {
-    System.out.println("Realizando el pago con Visa...");
+  protected void startPayment(double amount) {
+    System.out.println("Pagando $" + amount + " con Visa...");
   }
 
   @Override
-  void endPayment() {
-    System.out.println("Finalizando el pago a través de los servidores Visa...");
+  protected void endPayment() {
+    System.out.println("Pago finalizado en servidores Visa.");
   }
 }
