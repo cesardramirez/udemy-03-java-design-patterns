@@ -27,8 +27,9 @@ import com.udemy.patterns.behavioral.observer.Walker;
 import com.udemy.patterns.behavioral.state.MobileAlertStateContext;
 import com.udemy.patterns.behavioral.state.Silent;
 import com.udemy.patterns.behavioral.state.Vibration;
-import com.udemy.patterns.behavioral.strategy.LowerStrategyTextFormatter;
-import com.udemy.patterns.behavioral.strategy.UpperStrategyTextFormatter;
+import com.udemy.patterns.behavioral.strategy.LowerCaseFormatter;
+import com.udemy.patterns.behavioral.strategy.TextEditor;
+import com.udemy.patterns.behavioral.strategy.UpperTextFormatter;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -254,11 +255,10 @@ public class Main {
   }
 
   private static void testStrategy() {
-    com.udemy.patterns.behavioral.strategy.Context context =
-            new com.udemy.patterns.behavioral.strategy.Context(new UpperStrategyTextFormatter());
-    context.publishText("Este texto será convertido a MAYÚSCULAS a través del algoritmo.");
+    TextEditor editor = new TextEditor(new UpperTextFormatter());
+    editor.publishText("Texto en mayúsculas.");
 
-    context = new com.udemy.patterns.behavioral.strategy.Context(new LowerStrategyTextFormatter());
-    context.publishText("Este texto será convertido a MINÚSCULAS a través del algoritmo.");
+    editor = new TextEditor(new LowerCaseFormatter());
+    editor.publishText("Texto en MINÚSCULAS.");
   }
 }
