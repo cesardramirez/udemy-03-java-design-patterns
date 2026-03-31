@@ -484,3 +484,40 @@ En lugar de usar múltiples condicionales (`if` / `switch`), el comportamiento s
 - Flujo de una máquina de estados.
 
 ---
+## 🎯 Strategy
+
+![Strategy UML](docs/img/14_UML_Strategy.png)
+
+### 📖 Descripción
+
+El patrón **Strategy** permite definir múltiples algoritmos o comportamientos y seleccionar cuál usar en tiempo de ejecución.
+
+En lugar de usar múltiples `if` o `switch`, cada comportamiento se encapsula en una clase independiente.
+
+### 🎯 Problema que resuelve
+
+- Elimina condicionales complejos.
+- Permite cambiar comportamiento dinámicamente.
+- Facilita agregar nuevos algoritmos sin modificar código existente.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Strategy | Define la interfaz del algoritmo |
+| ConcreteStrategy | Implementa el algoritmo |
+| Context | Usa una estrategia |
+| Client | Selecciona la estrategia |
+
+### 🔎 Cuándo usarlo
+- Cuando tienes múltiples formas de realizar una operación.
+- Cuando quieres cambiar comportamiento en runtime.
+- Cuando quieres evitar condicionales extensos.
+
+#### Ejemplos reales:
+- Métodos de pago (tarjeta, PayPal, efectivo).
+- Algoritmos de ordenamiento.
+- Estrategias de envío (rápido, estándar).
+- Compresión de archivos.
+
+---
