@@ -522,3 +522,40 @@ En lugar de usar múltiples `if` o `switch`, cada comportamiento se encapsula en
 - Compresión de archivos.
 
 ---
+## 🧩 Template Method
+
+![Template Method UML](docs/img/15_UML_Template_Method.png)
+
+### 📖 Descripción
+
+El patrón **Template Method** define una secuencia de pasos para ejecutar un algoritmo, donde algunos pasos pueden ser implementados o sobrescritos por las subclases.
+
+Esto permite reutilizar la estructura general mientras se personalizan partes específicas del comportamiento.
+
+### 🎯 Problema que resuelve
+
+- Evita duplicación de código.
+- Define una estructura clara para algoritmos.
+- Permite variaciones en pasos específicos sin alterar el flujo general.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| AbstractClass | Define el template method (algoritmo) |
+| ConcreteClass | Implementa pasos específicos |
+| Template Method | Define el flujo del algoritmo |
+| Hook (opcional) | Permite extensiones opcionales |
+
+### 🔎 Cuándo usarlo
+- Cuando varios algoritmos comparten la misma estructura.
+- Cuando quieres evitar duplicación de lógica.
+- Cuando necesitas definir un flujo fijo con pasos personalizables.
+
+#### Ejemplos reales:
+- Procesamiento de pagos (VISA, MasterCard).
+- Flujos de autenticación.
+- Procesamiento de archivos.
+- Frameworks que definen ciclos de vida.
+
+---
