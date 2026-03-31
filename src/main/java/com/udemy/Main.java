@@ -30,6 +30,7 @@ import com.udemy.patterns.behavioral.state.Vibration;
 import com.udemy.patterns.behavioral.strategy.LowerCaseFormatter;
 import com.udemy.patterns.behavioral.strategy.TextEditor;
 import com.udemy.patterns.behavioral.strategy.UpperTextFormatter;
+import com.udemy.patterns.behavioral.templatemethod.PayPal;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -66,7 +67,8 @@ public class Main {
     //testObserver();
     //testState();
     //testInterpreter();
-    testStrategy();
+    //testStrategy();
+    testTemplateMethod();
   }
 
   private static void testFactoryMethod() {
@@ -260,5 +262,16 @@ public class Main {
 
     editor = new TextEditor(new LowerCaseFormatter());
     editor.publishText("Texto en MINÚSCULAS.");
+  }
+
+  private static void testTemplateMethod() {
+    com.udemy.patterns.behavioral.templatemethod.Payment payment =
+            new com.udemy.patterns.behavioral.templatemethod.Visa();
+    payment.makePayment();
+
+    System.out.println("-----");
+
+    payment = new PayPal();
+    payment.makePayment();
   }
 }
