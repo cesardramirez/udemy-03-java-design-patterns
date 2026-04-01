@@ -19,7 +19,8 @@ Udemy - Patrones de Diseño en Java
   - [Observer](#-observer).
   - [State](#-state).
   - [Strategy](#-strategy).
-  - Template Method.
+  - [Template Method](#-template-method).
+  - Visitor.
 
 # Design Patterns
 

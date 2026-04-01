@@ -31,6 +31,11 @@ import com.udemy.patterns.behavioral.strategy.LowerCaseFormatter;
 import com.udemy.patterns.behavioral.strategy.TextEditor;
 import com.udemy.patterns.behavioral.strategy.UpperTextFormatter;
 import com.udemy.patterns.behavioral.templatemethod.PayPal;
+import com.udemy.patterns.behavioral.visitor.BlackCreditCardVisitor;
+import com.udemy.patterns.behavioral.visitor.ClassicCreditCardVisitor;
+import com.udemy.patterns.behavioral.visitor.DealElement;
+import com.udemy.patterns.behavioral.visitor.FlightDeals;
+import com.udemy.patterns.behavioral.visitor.GasolineDeals;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -68,7 +73,8 @@ public class Main {
     //testState();
     //testInterpreter();
     //testStrategy();
-    testTemplateMethod();
+    //testTemplateMethod();
+    testVisitor();
   }
 
   private static void testFactoryMethod() {
@@ -274,5 +280,13 @@ public class Main {
     payment.makePayment(5);  // Falla validación
     System.out.println("-----");
     payment.makePayment(50); // Ok
+  }
+
+  private static void testVisitor() {
+    DealElement dealElement = new GasolineDeals();
+    dealElement.accept(new BlackCreditCardVisitor());
+
+    dealElement = new FlightDeals();
+    dealElement.accept(new ClassicCreditCardVisitor());
   }
 }
