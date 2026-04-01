@@ -9,6 +9,7 @@ Udemy - Patrones de Diseño en Java
   - [Prototype](#-prototype).
   - [Singleton](#-singleton).
 - Structural
+  - Adapter. 
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
@@ -20,7 +21,7 @@ Udemy - Patrones de Diseño en Java
   - [State](#-state).
   - [Strategy](#-strategy).
   - [Template Method](#-template-method).
-  - Visitor.
+  - [Visitor](#-visitor).
 
 # Design Patterns
 
@@ -558,5 +559,43 @@ Esto permite reutilizar la estructura general mientras se personalizan partes es
 - Flujos de autenticación.
 - Procesamiento de archivos.
 - Frameworks que definen ciclos de vida.
+
+---
+## 🧭 Visitor
+
+![Visitor UML](docs/img/16_UML_Visitor.png)
+
+### 📖 Descripción
+
+El patrón **Visitor** separa los algoritmos de la estructura de objetos sobre la que operan.
+
+Permite definir nuevas operaciones sin cambiar las clases de los elementos, delegando la lógica a un objeto visitante.
+
+### 🎯 Problema que resuelve
+
+- Evita modificar clases existentes al agregar nuevas funcionalidades.
+- Permite agrupar operaciones relacionadas.
+- Facilita aplicar múltiples operaciones sobre una estructura de objetos.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Visitor | Declara operaciones para cada tipo de elemento |
+| ConcreteVisitor | Implementa operaciones específicas |
+| Element | Define método `accept(visitor)` |
+| ConcreteElement | Implementa aceptación del visitante |
+| Client | Aplica el visitante |
+
+### 🔎 Cuándo usarlo
+- Cuando necesitas agregar nuevas operaciones frecuentemente.
+- Cuando tienes una estructura de objetos estable.
+- Cuando quieres separar lógica de negocio de los objetos.
+
+#### Ejemplos reales:
+- Cálculo de precios/impuestos.
+- Exportación de datos (XML, JSON, PDF).
+- Validaciones sobre estructuras complejas.
+- Compiladores (AST traversal).
 
 ---
