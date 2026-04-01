@@ -76,7 +76,10 @@ public class Main {
     //testInterpreter();
     //testStrategy();
     //testTemplateMethod();
-    testVisitor();
+    //testVisitor();
+
+    // ---- Structural Patterns ----
+    testAdapter();
   }
 
   private static void testFactoryMethod() {
@@ -299,5 +302,14 @@ public class Main {
     for (Deal deal : deals) {
       System.out.println(deal.accept(black));
     }
+  }
+
+  private static void testAdapter() {
+    com.udemy.patterns.structural.adapter.CreditCard creditCard =
+            new com.udemy.patterns.structural.adapter.CreditCard();
+    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.CLASSIC);
+    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.GOLD);
+    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.BLACK);
+    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.SILVER);
   }
 }
