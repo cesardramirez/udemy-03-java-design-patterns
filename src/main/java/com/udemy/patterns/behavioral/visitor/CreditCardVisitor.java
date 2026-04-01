@@ -4,7 +4,7 @@ package com.udemy.patterns.behavioral.visitor;
  * Visitor: CreditCardVisitor
  */
 public interface CreditCardVisitor {
-  void gasolineDeals(GasolineDeals gasolineDeals);
+  String visit(GasolineDeal gasolineDeal);
 
-  void flightDeals(FlightDeals flightDeals);
+  String visit(FlightDeal flightDeal);
 }

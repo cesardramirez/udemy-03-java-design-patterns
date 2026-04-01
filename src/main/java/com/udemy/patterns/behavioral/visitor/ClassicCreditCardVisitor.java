@@ -6,12 +6,16 @@ package com.udemy.patterns.behavioral.visitor;
 public class ClassicCreditCardVisitor implements CreditCardVisitor {
 
   @Override
-  public void gasolineDeals(GasolineDeals gasolineDeals) {
-    System.out.println("Descuento del 3% en Gasolina con tu tarjeta Clásica.");
+  public String visit(GasolineDeal deal) {
+    double discount = deal.getPricePerLiter() * 0.03;
+    return "Gasolina: precio $" + deal.getPricePerLiter() +
+            " → descuento 3%: $" + discount + " (TC Clásica)";
   }
 
   @Override
-  public void flightDeals(FlightDeals flightDeals) {
-    System.out.println("Descuento del 5% en tus Vuelos con tu tarjeta Clásica.");
+  public String visit(FlightDeal deal) {
+    double discount = deal.getTicketPrice() * 0.05;
+    return "Vuelo: precio $" + deal.getTicketPrice() +
+            " → descuento 5%: $" + discount + " (TC Clásica)";
   }
 }

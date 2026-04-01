@@ -6,12 +6,16 @@ package com.udemy.patterns.behavioral.visitor;
 public class BlackCreditCardVisitor implements CreditCardVisitor {
 
   @Override
-  public void gasolineDeals(GasolineDeals gasolineDeals) {
-    System.out.println("Descuento del 10% en Gasolina con tu tarjeta Black.");
+  public String visit(GasolineDeal deal) {
+    double discount = deal.getPricePerLiter() * 0.10;
+    return "Gasolina: precio $" + deal.getPricePerLiter() +
+            " → descuento 10%: $" + discount + " (TC Black)";
   }
 
   @Override
-  public void flightDeals(FlightDeals flightDeals) {
-    System.out.println("Descuento del 25% en tus Vuelos con tu tarjeta Black.");
+  public String visit(FlightDeal deal) {
+    double discount = deal.getTicketPrice() * 0.25;
+    return "Vuelo: precio $" + deal.getTicketPrice() +
+            " → descuento 25%: $" + discount + " (TC Black)";
   }
 }

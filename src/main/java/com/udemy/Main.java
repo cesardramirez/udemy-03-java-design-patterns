@@ -33,9 +33,10 @@ import com.udemy.patterns.behavioral.strategy.UpperTextFormatter;
 import com.udemy.patterns.behavioral.templatemethod.PayPal;
 import com.udemy.patterns.behavioral.visitor.BlackCreditCardVisitor;
 import com.udemy.patterns.behavioral.visitor.ClassicCreditCardVisitor;
-import com.udemy.patterns.behavioral.visitor.DealElement;
-import com.udemy.patterns.behavioral.visitor.FlightDeals;
-import com.udemy.patterns.behavioral.visitor.GasolineDeals;
+import com.udemy.patterns.behavioral.visitor.CreditCardVisitor;
+import com.udemy.patterns.behavioral.visitor.Deal;
+import com.udemy.patterns.behavioral.visitor.FlightDeal;
+import com.udemy.patterns.behavioral.visitor.GasolineDeal;
 import com.udemy.patterns.creational.abstractfactory.FactoryProvider;
 import com.udemy.patterns.creational.abstractfactory.TypeCard;
 import com.udemy.patterns.creational.abstractfactory.TypePaymentMethod;
@@ -52,6 +53,7 @@ import com.udemy.patterns.creational.prototype.PrototypeFactory;
 import com.udemy.patterns.creational.prototype.Visa;
 
 import java.time.YearMonth;
+import java.util.List;
 
 
 public class Main {
@@ -283,10 +285,19 @@ public class Main {
   }
 
   private static void testVisitor() {
-    DealElement dealElement = new GasolineDeals();
-    dealElement.accept(new BlackCreditCardVisitor());
+    List<Deal> deals = List.of(new GasolineDeal(10000), new FlightDeal(500000));
 
-    dealElement = new FlightDeals();
-    dealElement.accept(new ClassicCreditCardVisitor());
+    CreditCardVisitor classic = new ClassicCreditCardVisitor();
+    CreditCardVisitor black = new BlackCreditCardVisitor();
+
+    System.out.println("---- Tarjeta Clásica ----");
+    for (Deal deal : deals) {
+      System.out.println(deal.accept(classic)); // GasolineDeal.accept() -> visitor.visit(GasolineDeal) [double dispatch]
+    }
+
+    System.out.println("\n---- Tarjeta Black ----");
+    for (Deal deal : deals) {
+      System.out.println(deal.accept(black));
+    }
   }
 }
