@@ -51,6 +51,10 @@ import com.udemy.patterns.creational.factorymethod.TypePayment;
 import com.udemy.patterns.creational.prototype.PrototypeCard;
 import com.udemy.patterns.creational.prototype.PrototypeFactory;
 import com.udemy.patterns.creational.prototype.Visa;
+import com.udemy.patterns.structural.adapter.BlackCreditCard;
+import com.udemy.patterns.structural.adapter.ClassicCreditCard;
+import com.udemy.patterns.structural.adapter.GoldCreditCard;
+import com.udemy.patterns.structural.adapter.SecureAdapter;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -305,11 +309,13 @@ public class Main {
   }
 
   private static void testAdapter() {
-    com.udemy.patterns.structural.adapter.CreditCard creditCard =
-            new com.udemy.patterns.structural.adapter.CreditCard();
-    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.CLASSIC);
-    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.GOLD);
-    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.BLACK);
-    creditCard.pay(com.udemy.patterns.structural.adapter.TypeCard.SILVER);
+    com.udemy.patterns.structural.adapter.Payment classic = new ClassicCreditCard();
+
+    com.udemy.patterns.structural.adapter.Payment gold = new SecureAdapter(new GoldCreditCard());
+    com.udemy.patterns.structural.adapter.Payment black = new SecureAdapter(new BlackCreditCard());
+
+    classic.pay();
+    gold.pay();
+    black.pay();
   }
 }
