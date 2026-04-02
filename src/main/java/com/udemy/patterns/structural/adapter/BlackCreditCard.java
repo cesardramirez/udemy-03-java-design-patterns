@@ -10,14 +10,4 @@ public class BlackCreditCard implements Secure {
   public void securePay() {
     System.out.println("Tarjeta Black: Pago con seguridad ALTA.");
   }
-
-  /*@Override
-  public void payWithSecureLevelA() {
-    System.out.println("Tarjeta Black: Pagando con Seguridad Alta (Lvl A)");
-  }
-
-  @Override
-  public void payWithSecureLevelZ() {
-    // Tarjeta Black no tiene Seguridad Baja.
-  }*/
 }

@@ -517,7 +517,7 @@ En lugar de usar múltiples `if` o `switch`, cada comportamiento se encapsula en
 - Cuando quieres cambiar comportamiento en runtime.
 - Cuando quieres evitar condicionales extensos.
 
-#### Ejemplos reales:
+#### Ejemplos reales
 - Métodos de pago (tarjeta, PayPal, efectivo).
 - Algoritmos de ordenamiento.
 - Estrategias de envío (rápido, estándar).
@@ -554,7 +554,7 @@ Esto permite reutilizar la estructura general mientras se personalizan partes es
 - Cuando quieres evitar duplicación de lógica.
 - Cuando necesitas definir un flujo fijo con pasos personalizables.
 
-#### Ejemplos reales:
+#### Ejemplos reales
 - Procesamiento de pagos (VISA, MasterCard).
 - Flujos de autenticación.
 - Procesamiento de archivos.
@@ -592,10 +592,48 @@ Permite definir nuevas operaciones sin cambiar las clases de los elementos, dele
 - Cuando tienes una estructura de objetos estable.
 - Cuando quieres separar lógica de negocio de los objetos.
 
-#### Ejemplos reales:
+#### Ejemplos reales
 - Cálculo de precios/impuestos.
 - Exportación de datos (XML, JSON, PDF).
 - Validaciones sobre estructuras complejas.
 - Compiladores (AST traversal).
+
+---
+## 🔌 Adapter
+
+![Adapter UML](docs/img/17_UML_Adapter.png)
+
+### 📖 Descripción
+
+El patrón **Adapter** actúa como un puente entre dos interfaces incompatibles.
+
+Convierte la interfaz de una clase existente (**Adaptee**) en otra que el cliente espera (**Target**), permitiendo su uso sin modificar el código original.
+
+### 🎯 Problema que resuelve
+
+- Integra clases existentes con interfaces incompatibles.
+- Evita modificar código legado.
+- Permite reutilizar componentes existentes.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Target | Interfaz esperada por el cliente |
+| Adaptee | Clase existente con interfaz incompatible |
+| Adapter | Convierte la interfaz del Adaptee |
+| Client | Usa la interfaz Target |
+
+#### 🔎 Cuándo usarlo
+- Cuando necesitas integrar código legado.
+- Cuando dos interfaces no son compatibles.
+- Cuando quieres reutilizar una clase existente sin modificarla.
+
+#### Ejemplos reales
+- Integración de APIs externas (librerías).
+- Conectar sistemas legacy.
+- Adaptadores de bases de datos.
+- Conectores de hardware (USB → HDMI).
+- Wrappers de librerías.
 
 ---

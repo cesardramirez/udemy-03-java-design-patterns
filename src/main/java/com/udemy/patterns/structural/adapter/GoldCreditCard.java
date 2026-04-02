@@ -10,14 +10,4 @@ public class GoldCreditCard implements Secure {
   public void securePay() {
     System.out.println("Tarjeta Gold: Pago con seguridad MEDIA.");
   }
-
-  /*@Override
-  public void payWithSecureLevelA() {
-    // Tarjeta Gold no tiene Seguridad Alta.
-  }
-
-  @Override
-  public void payWithSecureLevelZ() {
-    System.out.println("Tarjeta Gold: Pagando con Seguridad Baja (Lvl Z)");
-  }*/
 }
