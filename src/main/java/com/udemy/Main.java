@@ -55,6 +55,8 @@ import com.udemy.patterns.structural.adapter.BlackCreditCard;
 import com.udemy.patterns.structural.adapter.ClassicCreditCard;
 import com.udemy.patterns.structural.adapter.GoldCreditCard;
 import com.udemy.patterns.structural.adapter.SecureAdapter;
+import com.udemy.patterns.structural.bridge.SecureCreditCard;
+import com.udemy.patterns.structural.bridge.UnsecureCreditCard;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -83,7 +85,8 @@ public class Main {
     //testVisitor();
 
     // ---- Structural Patterns ----
-    testAdapter();
+    //testAdapter();
+    testBridge();
   }
 
   private static void testFactoryMethod() {
@@ -317,5 +320,14 @@ public class Main {
     classic.pay();
     gold.pay();
     black.pay();
+  }
+
+  private static void testBridge() {
+    com.udemy.patterns.structural.bridge.CreditCard classic
+            = new com.udemy.patterns.structural.bridge.ClassicCreditCard(new UnsecureCreditCard());
+    classic.makePayment();
+
+    classic = new com.udemy.patterns.structural.bridge.ClassicCreditCard(new SecureCreditCard());
+    classic.makePayment();
   }
 }
