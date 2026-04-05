@@ -11,7 +11,8 @@ Udemy - Patrones de Diseño en Java
 - Structural
   - [Adapter](#-adapter).
   - [Bridge](#-bridge).
-  - Composite.
+  - [Composite](#-composite).
+  - Decorator.
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
@@ -673,5 +674,43 @@ En lugar de usar herencia para combinar múltiples variantes, se usa **composici
 - Sistemas de pago (tipo de pago + método).
 - UI (tipo de componente + tema).
 - Dispositivos (control remoto + dispositivo).
+
+---
+## 🌳 Composite
+
+![Composite UML](docs/img/19_UML_Composite.png)
+
+### 📖 Descripción
+
+El patrón **Composite** permite tratar objetos individuales (**hojas**) y composiciones de objetos (**compuestos**) de la misma manera.
+
+Se utiliza para representar estructuras jerárquicas como árboles, donde cada nodo puede contener otros nodos.
+
+### 🎯 Problema que resuelve
+
+- Permite trabajar con estructuras jerárquicas complejas.
+- Unifica el tratamiento de objetos simples y compuestos.
+- Facilita operaciones recursivas.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Component | Interfaz común |
+| Leaf | Elemento individual |
+| Composite | Contiene hijos |
+| Client | Usa la estructura |
+
+### 🔎 Cuándo usarlo
+- Cuando tienes estructuras jerárquicas (árboles).
+- Cuando quieres tratar objetos individuales y grupos igual.
+- Cuando necesitas operaciones recursivas.
+
+#### Ejemplos reales
+- Sistemas de archivos (carpetas y archivos).
+- Interfaces gráficas (componentes y contenedores).
+- Operaciones recursivas y estructuras anidadas.
+- Estructuras organizacionales.
+- Árboles DOM (HTML).
 
 ---
