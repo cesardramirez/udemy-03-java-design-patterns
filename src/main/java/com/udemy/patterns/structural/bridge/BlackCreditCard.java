@@ -1,19 +1,19 @@
 package com.udemy.patterns.structural.bridge;
 
 /**
- * RefinedAbstraction: ClassicCreditCard
+ * RefinedAbstraction: BlackCreditCard
  * Define las variantes del comportamiento.
  * Agregan contexto (tipo de tarjeta) y delegan la ejecución al Implementor.
  */
-public class ClassicCreditCard extends CreditCard {
+public class BlackCreditCard extends CreditCard {
 
-  public ClassicCreditCard(PaymentSecurity paymentSecurity) {
+  public BlackCreditCard(PaymentSecurity paymentSecurity) {
     super(paymentSecurity);
   }
 
   @Override
   public void makePayment() {
-    System.out.println("Pago con tarjeta clásica.");
+    System.out.println("Pago con tarjeta BLACK (beneficios premium)");
     paymentSecurity.processPayment();
   }
 }
