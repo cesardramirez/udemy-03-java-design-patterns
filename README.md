@@ -637,3 +637,39 @@ Convierte la interfaz de una clase existente (**Adaptee**) en otra que el client
 - Wrappers de librerías.
 
 ---
+## 🌉 Bridge
+
+![Bridge UML](docs/img/18_UML_Bridge.png)
+
+### 📖 Descripción
+
+El patrón **Bridge** desacopla una abstracción de su implementación, permitiendo que ambas evolucionen independientemente.
+
+En lugar de usar herencia para combinar múltiples variantes, se usa **composición**, evitando la explosión de clases.
+
+### 🎯 Problema que resuelve
+
+- Evita combinaciones excesivas de clases (explosión de clases).
+- Permite cambiar implementaciones sin afectar al cliente.
+- Facilita la extensibilidad.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Abstraction | Define la interfaz de alto nivel |
+| RefinedAbstraction | Extiende la abstracción |
+| Implementor | Define la interfaz de implementación |
+| ConcreteImplementor | Implementa la lógica concreta |
+
+### 🔎 Cuándo usarlo
+- Cuando tienes dos dimensiones que pueden variar independientemente.
+- Cuando quieres evitar una explosión de clases por combinaciones.
+- Cuando necesitas cambiar implementaciones en runtime.
+
+#### Ejemplos reales
+- Sistemas de pago (tipo de pago + método).
+- UI (tipo de componente + tema).
+- Dispositivos (control remoto + dispositivo).
+
+---
