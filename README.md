@@ -9,7 +9,9 @@ Udemy - Patrones de Diseño en Java
   - [Prototype](#-prototype).
   - [Singleton](#-singleton).
 - Structural
-  - Adapter. 
+  - [Adapter](#-adapter).
+  - [Bridge](#-bridge).
+  - Composite.
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).

@@ -57,6 +57,8 @@ import com.udemy.patterns.structural.adapter.GoldCreditCard;
 import com.udemy.patterns.structural.adapter.SecureAdapter;
 import com.udemy.patterns.structural.bridge.SecurePayment;
 import com.udemy.patterns.structural.bridge.UnsecurePayment;
+import com.udemy.patterns.structural.composite.Directory;
+import com.udemy.patterns.structural.composite.File;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -86,7 +88,8 @@ public class Main {
 
     // ---- Structural Patterns ----
     //testAdapter();
-    testBridge();
+    //testBridge();
+    testComposite();
   }
 
   private static void testFactoryMethod() {
@@ -332,5 +335,19 @@ public class Main {
     com.udemy.patterns.structural.bridge.CreditCard blackSecure
             = new com.udemy.patterns.structural.bridge.BlackCreditCard(new SecurePayment());
     blackSecure.makePayment();
+  }
+
+  private static void testComposite() {
+    File file1 = new File("document.txt");
+    File file2 = new File("image.png");
+
+    Directory folder = new Directory("Documents");
+    folder.add(file1);
+    folder.add(file2);
+
+    Directory root = new Directory("User");
+    root.add(folder);
+
+    root.showDetails();
   }
 }
