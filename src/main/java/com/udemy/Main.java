@@ -59,6 +59,11 @@ import com.udemy.patterns.structural.bridge.SecurePayment;
 import com.udemy.patterns.structural.bridge.UnsecurePayment;
 import com.udemy.patterns.structural.composite.Directory;
 import com.udemy.patterns.structural.composite.File;
+import com.udemy.patterns.structural.decorator.ChocolateDecorator;
+import com.udemy.patterns.structural.decorator.Coffee;
+import com.udemy.patterns.structural.decorator.MilkDecorator;
+import com.udemy.patterns.structural.decorator.SimpleCoffee;
+import com.udemy.patterns.structural.decorator.SugarDecorator;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -89,7 +94,8 @@ public class Main {
     // ---- Structural Patterns ----
     //testAdapter();
     //testBridge();
-    testComposite();
+    //testComposite();
+    testDecorator();
   }
 
   private static void testFactoryMethod() {
@@ -349,5 +355,15 @@ public class Main {
     root.add(folder);
 
     root.showDetails();
+  }
+
+  private static void testDecorator() {
+    Coffee coffee = new SimpleCoffee();
+    coffee = new MilkDecorator(coffee);
+    coffee = new SugarDecorator(coffee);
+    coffee = new ChocolateDecorator(coffee);
+
+    System.out.println(coffee.getDescription());
+    System.out.println("Precio: " + coffee.cost());
   }
 }

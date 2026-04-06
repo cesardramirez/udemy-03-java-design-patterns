@@ -704,7 +704,7 @@ Se utiliza para representar estructuras jerárquicas como árboles, donde cada n
 ### 🔎 Cuándo usarlo
 - Cuando tienes estructuras jerárquicas (árboles).
 - Cuando quieres tratar objetos individuales y grupos igual.
-- Cuando necesitas operaciones recursivas.
+- Cuando necesitas operaciones recursivas.                                                                                                                                                                
 
 #### Ejemplos reales
 - Sistemas de archivos (carpetas y archivos).
@@ -712,5 +712,6 @@ Se utiliza para representar estructuras jerárquicas como árboles, donde cada n
 - Operaciones recursivas y estructuras anidadas.
 - Estructuras organizacionales.
 - Árboles DOM (HTML).
-
----
+                                                                                                                                                                                                                                                                                                                      
+---                                                         
+                                                                                                                                                                                                                                 
