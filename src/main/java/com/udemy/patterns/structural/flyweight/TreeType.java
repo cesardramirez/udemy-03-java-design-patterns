@@ -8,5 +8,5 @@ package com.udemy.patterns.structural.flyweight;
  * Los atributos compartidos deben ser inmutables.
  */
 public interface TreeType {
-  void display(int x, int y);
+  void display(TreeContext context);
 }
