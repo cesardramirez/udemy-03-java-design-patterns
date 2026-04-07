@@ -12,7 +12,8 @@ Udemy - Patrones de Diseño en Java
   - [Adapter](#-adapter).
   - [Bridge](#-bridge).
   - [Composite](#-composite).
-  - Decorator.
+  - [Decorator](#-decorator).
+  - Facade.
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
@@ -714,4 +715,42 @@ Se utiliza para representar estructuras jerárquicas como árboles, donde cada n
 - Árboles DOM (HTML).
                                                                                                                                                                                                                                                                                                                       
 ---                                                         
-                                                                                                                                                                                                                                 
+## 🎁 Decorator
+
+![Decorator UML](docs/img/20_UML_Decorator.png)
+
+### 📖 Descripción
+
+El patrón **Decorator** permite añadir responsabilidades a un objeto envolviéndolo en otro objeto que implementa la misma interfaz.
+
+En lugar de usar herencia, utiliza **composición**, lo que permite combinar múltiples comportamientos de forma flexible.
+
+### 🎯 Problema que resuelve
+
+- Evita una explosión de subclases.
+- Permite agregar comportamiento dinámicamente.
+- Mantiene el principio de abierto/cerrado (OCP).
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Component | Interfaz común |
+| ConcreteComponent | Implementación base |
+| Decorator | Clase base para decoradores |
+| ConcreteDecorator | Agrega funcionalidad |
+
+### 🔎 Cuándo usarlo
+- Cuando necesitas agregar funcionalidades dinámicamente.
+- Cuando no quieres modificar clases existentes.
+- Cuando quieres combinar múltiples funcionalidades.
+- Cuando quieres evitar herencia excesiva.
+- Cuando quieres extender objetos sin modificarlos.
+
+#### Ejemplos reales
+- Sistemas de notificaciones (email + SMS + push)
+- Streams en Java (BufferedInputStream, etc.)
+- Middleware.
+- Filtros en aplicaciones web.
+
+---
