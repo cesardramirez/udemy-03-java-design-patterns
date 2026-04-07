@@ -68,6 +68,8 @@ import com.udemy.patterns.structural.facade.PaymentFacade;
 import com.udemy.patterns.structural.flyweight.TreeContext;
 import com.udemy.patterns.structural.flyweight.TreeFactory;
 import com.udemy.patterns.structural.flyweight.TreeType;
+import com.udemy.patterns.structural.proxy.Image;
+import com.udemy.patterns.structural.proxy.ProxyImage;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -101,7 +103,8 @@ public class Main {
     //testComposite();
     //testDecorator();
     //testFacade();
-    testFlyweight();
+    //testFlyweight();
+    testProxy();
   }
 
   private static void testFactoryMethod() {
@@ -391,5 +394,12 @@ public class Main {
     tree1.display();
     tree2.display();
     tree3.display();
+  }
+
+  private static void testProxy() {
+    Image image = new ProxyImage("foto.jpg");
+    image.display();  // Carga aquí
+    System.out.println("----");
+    image.display();  // Ya no carga otra vez, sólo la muestra
   }
 }

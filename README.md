@@ -14,7 +14,8 @@ Udemy - Patrones de Diseño en Java
   - [Composite](#-composite).
   - [Decorator](#-decorator).
   - [Facade](#-facade).
-  - Flyweight.
+  - [Flyweight](#-flyweight).
+  - [Proxy](#-proxy).
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
@@ -833,6 +834,10 @@ El estado variable (**extrínseco**) se pasa desde el cliente en tiempo de ejecu
 - Renderizado de texto (caracteres compartidos).
 - Juegos (árboles, enemigos repetidos).
 - Sistemas gráficos.
-- Cache de objetos.
+- Cache de objetos, pools o Strings.
 
 ---
+## 🛡️ Proxy
+
+![Proxy UML](docs/img/23_UML_Proxy.png)
+
