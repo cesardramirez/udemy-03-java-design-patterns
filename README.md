@@ -792,3 +792,47 @@ El cliente no necesita conocer los detalles internos del sistema, ya que todo se
 - Frameworks.
 
 ---
+## 🪶 Flyweight
+
+![Flyweight UML](docs/img/22_UML_Flyweight.png)
+
+### 📖 Descripción
+
+El patrón **Flyweight** permite compartir objetos que tienen estado común (**intrínseco**) para minimizar el uso de memoria.
+
+El estado variable (**extrínseco**) se pasa desde el cliente en tiempo de ejecución.
+
+### 🎯 Problema que resuelve
+
+- Reduce el consumo de memoria en aplicaciones con muchos objetos.
+- Evita la creación innecesaria de instancias repetidas.
+- Mejora el rendimiento en sistemas con alta carga de objetos.
+
+### 🧱 Estructura
+
+| Rol               | Responsabilidad            |
+|-------------------|----------------------------|
+| Flyweight         | Interfaz común             |
+| ConcreteFlyweight | Objeto compartido          |
+| UnsharedFlyweight | Objeto NO compartido       |
+| FlyweightFactory  | Gestiona instancias        |
+| Client            | Proporciona estado externo |
+
+### 🔎 Cuándo usarlo
+- Cuando tienes una gran cantidad de objetos similares.
+- Cuando el consumo de memoria es crítico.
+- Cuando puedes separar estado intrínseco (compartible) y extrínseco.
+- Cuando los objetos son inmutables.
+- Usar UnsharedFlyweight:
+  - Cuando el estado externo es complejo.
+  - Cuando quieres encapsular comportamiento.
+  - Cuando hay muchas variables externas.
+  - Cuando quieres objetos más detallados.
+
+#### Ejemplos reales
+- Renderizado de texto (caracteres compartidos).
+- Juegos (árboles, enemigos repetidos).
+- Sistemas gráficos.
+- Cache de objetos.
+
+---
