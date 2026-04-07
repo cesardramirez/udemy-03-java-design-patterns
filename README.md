@@ -841,3 +841,34 @@ El estado variable (**extrínseco**) se pasa desde el cliente en tiempo de ejecu
 
 ![Proxy UML](docs/img/23_UML_Proxy.png)
 
+### 📖 Descripción
+
+El patrón **Proxy** actúa como un intermediario que controla el acceso a un objeto real (**RealSubject**).
+
+Permite agregar funcionalidades como **control de acceso, caché, logging o carga diferida (lazy loading)** sin modificar la clase original.
+
+### 🎯 Problema que resuelve
+
+- Controla el acceso a objetos sensibles.
+- Permite optimizar recursos (lazy loading, caché).
+- Agrega comportamiento adicional sin modificar la clase real.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Subject | Interfaz común |
+| RealSubject | Objeto real |
+| Proxy | Controla acceso al objeto real |
+| Client | Usa el Subject |
+
+### 🔎 Cuándo usarlo
+- Cuando necesitas controlar el acceso a un objeto.
+- Cuando quieres implementar lazy loading.
+- Cuando necesitas añadir lógica adicional sin modificar la clase original.
+
+#### Tipos comunes de Proxy
+- Virtual Proxy (lazy loading).
+- Protection Proxy (control de acceso).
+- Remote Proxy (objetos remotos, APIs o microservicios).
+- Cache Proxy (guardar resultados para evitar recalcular).
