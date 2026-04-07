@@ -65,6 +65,8 @@ import com.udemy.patterns.structural.decorator.MilkDecorator;
 import com.udemy.patterns.structural.decorator.SimpleCoffee;
 import com.udemy.patterns.structural.decorator.SugarDecorator;
 import com.udemy.patterns.structural.facade.PaymentFacade;
+import com.udemy.patterns.structural.flyweight.TreeFactory;
+import com.udemy.patterns.structural.flyweight.TreeType;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -97,7 +99,8 @@ public class Main {
     //testBridge();
     //testComposite();
     //testDecorator();
-    testFacade();
+    //testFacade();
+    testFlyweight();
   }
 
   private static void testFactoryMethod() {
@@ -372,5 +375,17 @@ public class Main {
   private static void testFacade() {
     PaymentFacade facade = new PaymentFacade();
     facade.makePayment();
+  }
+
+  private static void testFlyweight() {
+    TreeType tree1 = TreeFactory.getTree("Pino");
+    tree1.display(10, 20);
+
+    TreeType tree2 = TreeFactory.getTree("Pino");
+    tree2.display(30, 40);
+
+    TreeType tree3 = TreeFactory.getTree("Roble");
+    tree3.display(50, 60);
+
   }
 }
