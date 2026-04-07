@@ -64,6 +64,7 @@ import com.udemy.patterns.structural.decorator.Coffee;
 import com.udemy.patterns.structural.decorator.MilkDecorator;
 import com.udemy.patterns.structural.decorator.SimpleCoffee;
 import com.udemy.patterns.structural.decorator.SugarDecorator;
+import com.udemy.patterns.structural.facade.PaymentFacade;
 
 import java.time.YearMonth;
 import java.util.List;
@@ -95,7 +96,8 @@ public class Main {
     //testAdapter();
     //testBridge();
     //testComposite();
-    testDecorator();
+    //testDecorator();
+    testFacade();
   }
 
   private static void testFactoryMethod() {
@@ -365,5 +367,10 @@ public class Main {
 
     System.out.println(coffee.getDescription());
     System.out.println("Precio: " + coffee.cost());
+  }
+
+  private static void testFacade() {
+    PaymentFacade facade = new PaymentFacade();
+    facade.makePayment();
   }
 }
