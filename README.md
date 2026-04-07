@@ -13,7 +13,8 @@ Udemy - Patrones de Diseño en Java
   - [Bridge](#-bridge).
   - [Composite](#-composite).
   - [Decorator](#-decorator).
-  - Facade.
+  - [Facade](#-facade).
+  - Flyweight.
 - Behavioral
   - [Chain of Responsibility](#-chain-of-responsibility).
   - [Command](#-command).
@@ -752,5 +753,42 @@ En lugar de usar herencia, utiliza **composición**, lo que permite combinar mú
 - Streams en Java (BufferedInputStream, etc.)
 - Middleware.
 - Filtros en aplicaciones web.
+
+---
+## 🏢 Facade
+
+![Facade UML](docs/img/21_UML_Facade.png)
+
+### 📖 Descripción
+
+El patrón **Facade** ofrece una interfaz unificada y simplificada para interactuar con un conjunto de clases o subsistemas complejos.
+
+El cliente no necesita conocer los detalles internos del sistema, ya que todo se maneja a través de la fachada.
+
+### 🎯 Problema que resuelve
+
+- Reduce la complejidad de uso de un sistema.
+- Desacopla al cliente de múltiples clases internas.
+- Mejora la legibilidad y mantenibilidad.
+
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| Facade | Proporciona interfaz simplificada |
+| Subsystem | Clases complejas del sistema |
+| Client | Usa la fachada |
+
+### 🔎 Cuándo usarlo
+- Cuando un sistema es complejo y quieres simplificar su uso.
+- Cuando necesitas una API más limpia.
+- Cuando quieres desacoplar al cliente del sistema interno y darle simplicidad al acceso.
+- Cuando existen muchas clases interdependientes.
+
+#### Ejemplos reales
+- APIs de servicios complejos.
+- SDKs.
+- Sistemas de pagos.
+- Frameworks.
 
 ---
