@@ -482,9 +482,18 @@ En lugar de usar múltiples condicionales (`if` / `switch`), el comportamiento s
 - Facilita agregar nuevos estados sin modificar el código existente.
 - Mejora la mantenibilidad y escalabilidad.
 
+### 🧱 Estructura
+
+| Rol | Responsabilidad |
+|-----|----------------|
+| State | Define el comportamiento común de los estados |
+| ConcreteState | Implementa el comportamiento de un estado específico |
+| Context | Mantiene el estado actual y delega las operaciones |
+| Client | Interactúa con el Context |
+
 ### 🔎 Cuándo usarlo
 - Cuando un objeto cambia su comportamiento según su estado.
-- Cuando hay muchos if o switch basados en estado.
+- Cuando hay muchos `if` o `switch` basados en estado.
 - Cuando quieres modelar transiciones de estados claramente.
 
 #### Ejemplos reales
