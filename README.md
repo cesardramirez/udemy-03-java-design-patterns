@@ -251,7 +251,7 @@ Los objetos se organizan en una **cadena**, y cada uno decide si puede procesar 
 
 ### 📖 Descripción
 
-El patrón **Command** convierte una solicitud en un objeto independiente que contiene toda la información necesaria para ejecutarla.
+El patrón **Command** convierte una acción en un objeto, permitiendo parametrizarla, almacenarla, ejecutarla posteriormente o incluso deshacerla.
 
 Esto permite:
 - Desacoplar quien envía la solicitud de quien la ejecuta.
